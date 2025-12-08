@@ -6,8 +6,8 @@ const About = () => {
     {
       degree: "MSc Artificial Intelligence",
       school: "Asia Pacific University (APU), Malaysia",
-      period: "2024 – Present",
-      status: "Current"
+      period: "2024-2025",
+      gpa: "GPA: 3.6"
     },
     {
       degree: "BSc (Hons) Computer Science (Upper Second Class)",
@@ -41,18 +41,18 @@ const About = () => {
             </h2>
             <div className="space-y-6 text-lg text-[#050505]/80 dark:text-white/80 leading-relaxed">
               <p>
-                I'm a front-end and mobile developer passionate about designing products that feel intuitive and alive. 
-                I love simplifying complex systems into interfaces that anyone can use, and I'm obsessed with clean design, 
-                performance, and user experience.
+                I'm an AI Engineer passionate about building intelligent systems that solve real-world problems. 
+                I specialize in developing machine learning models, neural networks, and AI-powered applications 
+                that transform data into actionable insights and automated solutions.
               </p>
               <p>
-                I enjoy building products that matter — from web platforms to mobile apps — that make people's lives easier. 
-                Currently pursuing my Master's in Artificial Intelligence while working on cutting-edge projects that blend 
-                traditional development with AI capabilities.
+                Currently pursuing my Master's in Artificial Intelligence while working on cutting-edge projects 
+                that blend deep learning, computer vision, and natural language processing. I enjoy creating 
+                AI solutions that make complex tasks effortless and accessible to everyone.
               </p>
               <p>
-                Based between Malaysia and Sri Lanka, I'm open to hybrid and remote opportunities where I can contribute 
-                to meaningful projects and continue growing as a developer.
+                Based between Malaysia and Sri Lanka, I'm open to hybrid and remote opportunities where I can 
+                contribute to meaningful AI projects and continue advancing the field of artificial intelligence.
               </p>
             </div>
           </div>

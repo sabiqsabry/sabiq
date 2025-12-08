@@ -20,7 +20,7 @@ const Skills = () => {
       { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
       { name: "React Native", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
       { name: "SwiftUI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" },
-      { name: "Tailwind", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" },
+      { name: "Tailwind", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
       { name: "Bootstrap", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" }
     ],
     "Backend": [
@@ -50,7 +50,7 @@ const Skills = () => {
 
   const SkillIcon = ({ icon, name }: { icon: string; name: string }) => {
     if (icon.startsWith('http')) {
-      return <img src={icon} alt={name} className="w-5 h-5 flex-shrink-0" />;
+      return <img src={icon} alt="" className="w-5 h-5 flex-shrink-0" />;
     }
     return <span className="text-lg flex-shrink-0">{icon}</span>;
   };
@@ -74,8 +74,8 @@ const Skills = () => {
                 <h3 className="text-2xl font-bold text-[#1B9AAA] mb-6 text-center">{category}</h3>
                 <div className="space-y-3">
                   {skills.map((skill, i) => (
-                    <div 
-                      key={i} 
+                    <div
+                      key={i}
                       className="flex items-center gap-3 p-3 rounded-lg bg-[#DDDBCB]/20 dark:bg-white/5 hover:bg-[#1B9AAA]/10 dark:hover:bg-[#1B9AAA]/20 transition-all duration-200 hover:scale-105 group"
                     >
                       <SkillIcon icon={skill.icon} name={skill.name} />

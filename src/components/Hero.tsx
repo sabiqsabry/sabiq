@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
-import { ArrowDown, Download } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
+import DownloadResumeDialog from './DownloadResumeDialog';
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -28,12 +29,12 @@ const Hero = () => {
 
           {/* Secondary Headline */}
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-semibold text-[#050505] dark:text-white leading-tight tracking-tight mb-6">
-            I build products that feel effortless — from concept to code.
+            I build AI systems that think — from data to intelligence.
           </h2>
 
           {/* Subheadline */}
           <p className="text-xl md:text-2xl text-[#050505]/70 dark:text-white/70 max-w-4xl mx-auto leading-relaxed animate-in fade-in delay-300 duration-700">
-            Crafting smooth, scalable, and meaningful digital experiences that blend logic with design.
+            Crafting intelligent solutions that transform data into actionable insights and automated systems.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-12 animate-in fade-in delay-500 duration-700">
@@ -45,20 +46,10 @@ const Hero = () => {
               <ArrowDown className="ml-2 h-5 w-5" />
             </Button>
             
-            <Button 
-              asChild
-              variant="outline"
-              className="border-[#1B9AAA] text-[#1B9AAA] hover:bg-[#1B9AAA] hover:text-white dark:border-[#1B9AAA] dark:text-[#1B9AAA] px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105"
-            >
-              <a 
-                href="https://drive.google.com/file/d/16H0xs452taoXg9p7JWRZu1YhzAdoXf11/view?usp=sharing" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <Download className="mr-2 h-5 w-5" />
-                Download Résumé
-              </a>
-            </Button>
+            <DownloadResumeDialog
+              triggerVariant="outline"
+              triggerClassName="border-[#1B9AAA] text-[#1B9AAA] hover:bg-[#1B9AAA] hover:text-white dark:border-[#1B9AAA] dark:text-[#1B9AAA] hover:scale-105"
+            />
           </div>
         </div>
 

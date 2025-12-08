@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
 import ThemeToggle from './ThemeToggle';
+import DownloadResumeDialog from './DownloadResumeDialog';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -65,18 +65,9 @@ const Navigation = () => {
 
           <div className="flex items-center gap-3">
             <ThemeToggle />
-            <Button 
-              asChild
-              className="bg-[#1B9AAA] hover:bg-[#1B9AAA]/90 text-white px-6 py-2 rounded-full transition-all duration-200 hover:scale-105"
-            >
-              <a 
-                href="https://drive.google.com/file/d/16H0xs452taoXg9p7JWRZu1YhzAdoXf11/view?usp=sharing" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                Download Résumé
-              </a>
-            </Button>
+            <DownloadResumeDialog
+              triggerClassName="bg-[#1B9AAA] hover:bg-[#1B9AAA]/90 text-white px-6 py-2 rounded-full transition-all duration-200 hover:scale-105"
+            />
           </div>
         </div>
       </div>

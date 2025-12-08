@@ -11,13 +11,37 @@ const Contact = () => {
     email: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = `Portfolio Contact from ${formData.name}`;
-    const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
-    const mailtoLink = `mailto:sabiqsabry48@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoLink;
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/sabiqsabry48@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: `Portfolio Contact from ${formData.name || 'Visitor'}`,
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error('Failed to send');
+      }
+
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (err) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -178,9 +202,20 @@ const Contact = () => {
                 <Button 
                   type="submit"
                   className="w-full bg-[#1B9AAA] hover:bg-[#1B9AAA]/90 text-white py-3 text-lg font-medium transition-all duration-200 hover:scale-105"
+                  disabled={isSubmitting}
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
+                {submitStatus === 'success' && (
+                  <p className="text-sm text-green-500">
+                    Thanks! Your message was sent. I&apos;ll reply soon.
+                  </p>
+                )}
+                {submitStatus === 'error' && (
+                  <p className="text-sm text-red-500">
+                    Something went wrong. Please try again or email me directly at sabiqsabry48@gmail.com.
+                  </p>
+                )}
               </form>
             </CardContent>
           </Card>
