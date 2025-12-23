@@ -1,98 +1,36 @@
-# Sabiq Sabry - Portfolio
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-This is my personal portfolio website showcasing my work, skills, and experience as an AI Engineer and Full-Stack Developer.
+## Getting Started
 
-## 🚀 Live Site
-
-Visit the portfolio at: [Your GitHub Pages URL] (coming soon)
-
-## 🛠️ Technology Stack
-
-This portfolio is built with:
-
-- **Vite** - Fast build tool and dev server
-- **TypeScript** - Type-safe JavaScript
-- **React** - UI library
-- **shadcn/ui** - Beautiful, accessible component library
-- **Tailwind CSS** - Utility-first CSS framework
-- **Framer Motion** - Smooth animations
-
-## 📁 Project Structure
-
-```
-src/
-├── components/          # React components
-│   ├── ui/             # shadcn/ui components
-│   ├── Hero.tsx        # Hero section
-│   ├── About.tsx       # About section
-│   ├── Skills.tsx      # Skills showcase
-│   ├── Projects.tsx    # Projects portfolio
-│   ├── WorkExperience.tsx  # Work history
-│   ├── Contact.tsx     # Contact form
-│   └── DownloadResumeDialog.tsx  # Resume download modal
-├── pages/              # Page components
-├── hooks/              # Custom React hooks
-└── lib/                # Utility functions
-```
-
-## 🚦 Getting Started
-
-### Prerequisites
-
-- Node.js (v18 or higher)
-- pnpm (v8 or higher)
-
-### Installation
+First, run the development server:
 
 ```bash
-pnpm install
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-### Development
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Start the development server:
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-```bash
-pnpm run dev
-```
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-The site will be available at `http://localhost:5173`
+## Learn More
 
-### Build
+To learn more about Next.js, take a look at the following resources:
 
-Build for production:
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-```bash
-pnpm run build
-```
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-The production build will be in the `dist/` directory.
+## Deploy on Vercel
 
-### Preview Production Build
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-```bash
-pnpm run preview
-```
-
-## 📝 Features
-
-- **Responsive Design** - Works seamlessly on all devices
-- **Dark Mode** - Toggle between light and dark themes
-- **Resume Downloads** - Two versions available (with/without photo)
-- **Contact Form** - Direct email integration
-- **Smooth Animations** - Enhanced user experience with Framer Motion
-- **Project Showcase** - Interactive project cards with details
-
-## 📧 Contact
-
-- **Email**: sabiqsabry48@gmail.com
-- **LinkedIn**: [sabiqsabry](https://www.linkedin.com/in/sabiqsabry/)
-- **GitHub**: [sabiqsabry](https://github.com/sabiqsabry)
-
-## 📄 License
-
-This project is open source and available under the MIT License.
-
----
-
-Built with ❤️ by Sabiq Sabry
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
