@@ -9,14 +9,14 @@ import { motion } from "framer-motion"
 
 interface ProjectCardProps {
     title: string
-    date: string
     category: string
     description: string
     color: string
     image?: string
+    href?: string
 }
 
-export function ProjectCard({ title, date, category, description, color, image }: ProjectCardProps) {
+export function ProjectCard({ title, category, description, color, image, href }: ProjectCardProps) {
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -54,11 +54,14 @@ export function ProjectCard({ title, date, category, description, color, image }
                         {description}
                     </p>
 
-                    <div className="flex items-center justify-between mt-auto">
-                        <span className="text-xs text-neutral-400 dark:text-neutral-500 font-mono">{date}</span>
-
-                        <Button variant="ghost" size="sm" className="opacity-0 group-hover:opacity-100 transition-opacity -translate-x-2 group-hover:translate-x-0" asChild>
-                            <Link href="#">
+                    <div className="flex items-center justify-end mt-auto">
+                        <Button
+                            variant="ghost"
+                            size="sm"
+                            className="opacity-0 group-hover:opacity-100 transition-opacity -translate-x-2 group-hover:translate-x-0"
+                            asChild
+                        >
+                            <Link href={href ?? "#"} target="_blank" rel="noreferrer">
                                 Read More <ArrowRight className="w-4 h-4 ml-2" />
                             </Link>
                         </Button>

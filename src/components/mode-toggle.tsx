@@ -49,14 +49,18 @@ export function ModeToggle() {
                 variant="ghost"
                 size="icon"
                 className={cn(
-                    "h-8 w-8 rounded-full",
+                    "h-8 w-8 rounded-full opacity-50 cursor-not-allowed",
                     safeTheme === "dark" && "bg-neutral-100 dark:bg-neutral-800"
                 )}
-                onClick={() => setTheme("dark")}
-                title="Dark theme"
+                onClick={(e) => {
+                    e.preventDefault()
+                    e.stopPropagation()
+                }}
+                disabled
+                title="Still under development, thanks for being patient"
             >
                 <Moon className="h-4 w-4" />
-                <span className="sr-only">Dark theme</span>
+                <span className="sr-only">Dark theme (disabled)</span>
             </Button>
         </div>
     )
