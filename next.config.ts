@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Vercel will auto-detect Next.js and handle the build
+  // Ensure proper output for Vercel
+  output: undefined, // Let Vercel handle output
 };
 
 export default nextConfig;
