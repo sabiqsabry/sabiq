@@ -1,8 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Ensure proper output for Vercel
-  output: undefined, // Let Vercel handle output
+  // Minimal config - let Vercel handle everything
 };
 
 export default nextConfig;
