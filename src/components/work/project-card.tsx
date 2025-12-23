@@ -45,8 +45,8 @@ export function ProjectCard({ title, date, category, description, color, image }
                 <div className="p-6">
                     <div className="flex justify-between items-start mb-4">
                         <div>
-                            <p className="text-xs font-medium text-neutral-500 mb-1">{category}</p>
-                            <h3 className="text-xl font-bold leading-tight">{title}</h3>
+                            <p className="text-xs font-medium text-neutral-500 dark:text-neutral-400 mb-1">{category}</p>
+                            <h3 className="text-xl font-bold leading-tight text-neutral-900 dark:text-neutral-50">{title}</h3>
                         </div>
                     </div>
 
@@ -55,7 +55,7 @@ export function ProjectCard({ title, date, category, description, color, image }
                     </p>
 
                     <div className="flex items-center justify-between mt-auto">
-                        <span className="text-xs text-neutral-400 font-mono">{date}</span>
+                        <span className="text-xs text-neutral-400 dark:text-neutral-500 font-mono">{date}</span>
 
                         <Button variant="ghost" size="sm" className="opacity-0 group-hover:opacity-100 transition-opacity -translate-x-2 group-hover:translate-x-0" asChild>
                             <Link href="#">

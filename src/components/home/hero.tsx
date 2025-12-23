@@ -41,7 +41,7 @@ export function Hero() {
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.2 }}
-                        className="text-4xl md:text-6xl font-serif font-bold tracking-tight text-neutral-900 dark:text-white"
+                        className="text-4xl md:text-6xl font-bold tracking-tight text-neutral-900 dark:text-white"
                     >
                         AI Engineer
                     </motion.h1>

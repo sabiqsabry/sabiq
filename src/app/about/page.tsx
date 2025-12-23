@@ -28,7 +28,7 @@ export default function AboutPage() {
 
             {/* Bio Section */}
             <section className="space-y-8 mb-20">
-                <h1 className="text-4xl md:text-5xl font-serif font-bold">Sabiq Sabry</h1>
+                <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-neutral-50">Sabiq Sabry</h1>
                 <p className="text-xl font-medium text-neutral-800 dark:text-neutral-200 leading-relaxed">
                     An AI Engineer and full-stack developer who enjoys building intelligent systems that solve real-world problems.
                 </p>
@@ -48,7 +48,7 @@ export default function AboutPage() {
 
             {/* Skills Section */}
             <section className="mb-20">
-                <h2 className="text-2xl font-bold mb-8">Skills</h2>
+                <h2 className="text-2xl font-bold mb-8 text-neutral-900 dark:text-neutral-50">Skills</h2>
                 <div className="space-y-6">
                     {Object.entries(skills).map(([category, items]) => (
                         <div key={category}>
@@ -67,14 +67,14 @@ export default function AboutPage() {
 
             {/* Experience Section */}
             <section className="mb-20">
-                <h2 className="text-2xl font-bold mb-8">Experience</h2>
+                <h2 className="text-2xl font-bold mb-8 text-neutral-900 dark:text-neutral-50">Experience</h2>
                 <div className="relative border-l border-neutral-200 dark:border-neutral-800 ml-3 space-y-10">
                     {experience.map((item, idx) => (
                         <div key={idx} className="pl-8 relative">
                             <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-neutral-300 dark:bg-neutral-700" />
-                            <h3 className="text-lg font-semibold">{item.role}</h3>
+                            <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-50">{item.role}</h3>
                             <p className="text-neutral-800 dark:text-neutral-200">{item.company}</p>
-                            <p className="text-sm text-neutral-500 mt-1">{item.period}</p>
+                            <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-1">{item.period}</p>
                         </div>
                     ))}
                 </div>
@@ -82,21 +82,21 @@ export default function AboutPage() {
 
             {/* Education Section */}
             <section className="mb-20">
-                <h2 className="text-2xl font-bold mb-8">Education</h2>
+                <h2 className="text-2xl font-bold mb-8 text-neutral-900 dark:text-neutral-50">Education</h2>
                 <div className="space-y-8">
                     {education.map((item, idx) => (
                         <div key={idx} className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-x-4 gap-y-1">
                             <div>
-                                <h3 className="text-lg font-semibold">{item.degree}</h3>
+                                <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-50">{item.degree}</h3>
                             </div>
                             <div className="text-right">
-                                <p className="text-sm text-neutral-500">{item.period}</p>
+                                <p className="text-sm text-neutral-500 dark:text-neutral-400">{item.period}</p>
                             </div>
                             <div>
                                 <p className="text-neutral-700 dark:text-neutral-300">{item.school}</p>
                             </div>
                             <div className="text-right">
-                                <p className="text-sm font-medium text-neutral-500">{item.details}</p>
+                                <p className="text-sm font-medium text-neutral-500 dark:text-neutral-400">{item.details}</p>
                             </div>
                         </div>
                     ))}

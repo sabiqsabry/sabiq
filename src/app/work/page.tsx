@@ -140,7 +140,7 @@ export default function WorkPage() {
     return (
         <div className="max-w-7xl mx-auto px-6 pb-20">
             <div className="py-12 md:py-20 text-center max-w-2xl mx-auto space-y-4">
-                <h1 className="text-4xl md:text-5xl font-serif font-bold">Selected Work</h1>
+                <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-neutral-50">Selected Work</h1>
                 <p className="text-neutral-500 dark:text-neutral-400 text-lg">
                     A collection of projects exploring AI, web, and mobile development.
                 </p>
