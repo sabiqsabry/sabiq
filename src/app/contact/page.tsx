@@ -97,7 +97,7 @@ export default function ContactPage() {
 
                     <div className="flex gap-4 pt-4">
                         <Link
-                            href="https://twitter.com/sabiqsabry"
+                            href="https://x.com/sabiqsabryy"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="w-10 h-10 bg-neutral-100 dark:bg-neutral-800 rounded-full flex items-center justify-center hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"

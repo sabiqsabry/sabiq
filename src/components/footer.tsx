@@ -15,7 +15,7 @@ export function Footer() {
                         © Sabiq Sabry 2025,<br />All rights reserved.
                     </p>
                     <div className="flex gap-4">
-                        <Link href="https://twitter.com/sabiqsabry" className="text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-50">
+                        <Link href="https://x.com/sabiqsabryy" className="text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-50">
                             <Twitter className="h-5 w-5" />
                         </Link>
                         <Link href="https://github.com/sabiqsabry" className="text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-50">
