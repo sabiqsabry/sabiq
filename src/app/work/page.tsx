@@ -7,6 +7,54 @@ import { Button } from "@/components/ui/button";
 
 const projects = [
     {
+        title: "Spa Ceylon AI Assistant",
+        category: "AI & ML",
+        description: "Claude-powered WhatsApp-style chatbot with ritual knowledge and Dosha quiz. Node.js, React, Claude AI.",
+        color: "bg-emerald-700",
+        image: "/assets/spa-ceylon-bot.png",
+        href: "https://github.com/sabiqsabry/spa-ceylon-bot",
+    },
+    {
+        title: "Gedara Rent",
+        category: "Web App",
+        description: "Full-stack rental marketplace with booking system and dashboards. Next.js 14, Stripe, Prisma.",
+        color: "bg-orange-600",
+        image: "/assets/gedara-rent.png",
+        href: "https://github.com/sabiqsabry/gedara-rent",
+    },
+    {
+        title: "Pash - Finance Tracker",
+        category: "Web App",
+        description: "AI-powered expense splitting and tracking with natural language input. Next.js, Gemini AI.",
+        color: "bg-violet-600",
+        image: "/assets/pash.png",
+        href: "https://github.com/sabiqsabry/Pash",
+    },
+    {
+        title: "Inventory Manager",
+        category: "Web App",
+        description: "Manufacturing inventory system with production tracking and analytics. React, TypeScript.",
+        color: "bg-slate-700",
+        image: "/assets/inventory-manager.png",
+        href: "https://github.com/sabiqsabry/inventory-manager",
+    },
+    {
+        title: "AlphabetBot",
+        category: "Robotics",
+        description: "Industrial robot programming to draw the alphabet using RAPID. ABB RobotStudio.",
+        color: "bg-gray-800",
+        image: "/assets/alphabet-bot.png",
+        href: "https://github.com/sabiqsabry/AlphabetBot",
+    },
+    {
+        title: "Twitter Sentiment Analysis",
+        category: "AI & ML",
+        description: "Comparative study of BiLSTM vs DistilBERT for sentiment classification. PyTorch, Transformers.",
+        color: "bg-sky-600",
+        image: "/assets/twitter-sentiment.png",
+        href: "https://github.com/sabiqsabry/Twitter-Sentiment-Bilstm-Distilbert",
+    },
+    {
         title: "Multimodal Pneumonia Diagnosis",
         category: "AI & ML",
         description: "Deep learning framework combining chest X-rays with medical records. 99.63% accuracy. Python, PyTorch.",
@@ -160,9 +208,13 @@ export default function WorkPage() {
                 ))}
             </div>
 
-            <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6 mt-12 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 mb-12">
                 {filteredProjects.map((project, idx) => (
-                    <ProjectCard key={idx} {...project} />
+                    <ProjectCard 
+                        key={project.href || project.title} 
+                        {...project} 
+                        priority={idx < 6}
+                    />
                 ))}
             </div>
 
