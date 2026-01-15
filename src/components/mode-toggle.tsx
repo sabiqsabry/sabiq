@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Monitor, Moon, Sun } from "lucide-react"
+import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/components/ui/button"
@@ -24,19 +24,6 @@ export function ModeToggle() {
                 size="icon"
                 className={cn(
                     "h-8 w-8 rounded-full",
-                    safeTheme === "system" && "bg-neutral-100 dark:bg-neutral-800"
-                )}
-                onClick={() => setTheme("system")}
-                title="System theme"
-            >
-                <Monitor className="h-4 w-4" />
-                <span className="sr-only">System theme</span>
-            </Button>
-            <Button
-                variant="ghost"
-                size="icon"
-                className={cn(
-                    "h-8 w-8 rounded-full",
                     safeTheme === "light" && "bg-neutral-100 dark:bg-neutral-800"
                 )}
                 onClick={() => setTheme("light")}
@@ -49,18 +36,14 @@ export function ModeToggle() {
                 variant="ghost"
                 size="icon"
                 className={cn(
-                    "h-8 w-8 rounded-full opacity-50 cursor-not-allowed",
+                    "h-8 w-8 rounded-full",
                     safeTheme === "dark" && "bg-neutral-100 dark:bg-neutral-800"
                 )}
-                onClick={(e) => {
-                    e.preventDefault()
-                    e.stopPropagation()
-                }}
-                disabled
-                title="Still under development, thanks for being patient"
+                onClick={() => setTheme("dark")}
+                title="Dark theme"
             >
                 <Moon className="h-4 w-4" />
-                <span className="sr-only">Dark theme (disabled)</span>
+                <span className="sr-only">Dark theme</span>
             </Button>
         </div>
     )
