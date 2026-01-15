@@ -2,7 +2,6 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useTheme } from "next-themes"
 import { cn } from "@/components/ui/button"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
@@ -18,14 +17,8 @@ const navItems = [
 
 export function Header() {
     const pathname = usePathname()
-    const { theme, resolvedTheme } = useTheme()
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-    const [mounted, setMounted] = useState(false)
     const [scrolled, setScrolled] = useState(false)
-
-    useEffect(() => {
-        setMounted(true)
-    }, [])
 
     useEffect(() => {
         const handleScroll = () => {
@@ -35,9 +28,6 @@ export function Header() {
         window.addEventListener("scroll", handleScroll)
         return () => window.removeEventListener("scroll", handleScroll)
     }, [])
-
-    // Determine if we're in dark mode (default to false/light theme when not mounted)
-    const isDark = mounted ? (resolvedTheme === "dark") : false
 
     return (
         <>
@@ -88,10 +78,10 @@ export function Header() {
                     <div className="flex items-center gap-2">
                         <Button 
                             asChild 
-                            variant={isDark ? "default" : "outline"}
+                            variant="outline"
                             className={cn(
                                 "hidden md:inline-flex rounded-full transition-all duration-300",
-                                !scrolled && "bg-white/60 dark:bg-neutral-900/60 backdrop-blur-sm border-neutral-200/50 dark:border-neutral-800/50"
+                                !scrolled && "bg-white/60 backdrop-blur-sm border-neutral-200/50"
                             )}
                         >
                             <Link href="/contact">Contact</Link>
