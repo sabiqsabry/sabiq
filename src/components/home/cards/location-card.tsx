@@ -27,24 +27,20 @@ export function LocationCard() {
             <div className="absolute inset-0 opacity-30 dark:opacity-20 pointer-events-none group-hover:opacity-100 dark:group-hover:opacity-90 transition-opacity duration-300 overflow-hidden flex items-center justify-center">
                 <div className="relative w-full h-full scale-100 group-hover:scale-100 transition-transform duration-300 flex items-center justify-center">
                     {mounted && (
-                        <WorldMap
-                        color="#d1d5db"
-                        size="responsive"
-                        data={Object.entries(visitedCountries).map(([country, config]) => ({
-                            country: country,
-                            value: config.value,
-                        }))}
-                        tooltipBgColor="#000000"
-                        tooltipTextColor="#ffffff"
-                        borderColor="#9ca3af"
-                        backgroundColor="transparent"
-                        richInteraction={false}
-                        style={{
-                            width: "100%",
-                            height: "100%",
-                            maxHeight: "100%",
-                        }}
-                        styleFunction={(context) => {
+                        <div className="w-full h-full max-h-full">
+                            <WorldMap
+                            color="#d1d5db"
+                            size="responsive"
+                            data={Object.entries(visitedCountries).map(([country, config]) => ({
+                                country: country,
+                                value: config.value,
+                            }))}
+                            tooltipBgColor="#000000"
+                            tooltipTextColor="#ffffff"
+                            borderColor="#9ca3af"
+                            backgroundColor="transparent"
+                            richInteraction={false}
+                            styleFunction={(context) => {
                             const countryCode = context.countryCode
                             const country = visitedCountries[countryCode as keyof typeof visitedCountries]
                             if (!country) {
@@ -66,7 +62,8 @@ export function LocationCard() {
                                 cursor: "default",
                             }
                         }}
-                        />
+                            />
+                        </div>
                     )}
                     
                     {/* Pin markers overlay - positioned using your coordinates */}
