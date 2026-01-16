@@ -2,15 +2,20 @@
 
 import * as React from "react"
 import { Moon, Sun } from "lucide-react"
-import { useTheme } from "@/hooks/use-theme"
+import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/components/ui/button"
 
 export function ModeToggle() {
-    const { setTheme, theme, mounted } = useTheme()
+    const { setTheme, theme } = useTheme()
+    const [mounted, setMounted] = React.useState(false)
+
+    React.useEffect(() => {
+        setMounted(true)
+    }, [])
 
     // Use a safe theme value that won't cause hydration mismatch
-    const safeTheme = mounted ? theme : "light"
+    const safeTheme = mounted ? theme : undefined
 
     return (
         <div className="flex items-center gap-2 border border-neutral-200 dark:border-neutral-800 rounded-full p-1 bg-white dark:bg-neutral-900">

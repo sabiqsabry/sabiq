@@ -15,8 +15,8 @@ const projects = [
 
 export function FeaturedProjectsCard() {
     return (
-        <Card className="h-full flex flex-col justify-between overflow-hidden group hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors">
-            <div className="p-6 pb-0">
+        <Card className="h-full flex flex-col overflow-hidden group hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors">
+            <div className="p-6 pb-4">
                 <div className="flex justify-between items-start mb-4">
                     <div>
                         <CardTitle>Featured Work</CardTitle>
@@ -28,39 +28,39 @@ export function FeaturedProjectsCard() {
                 </div>
             </div>
 
-            {/* Marquee Container */}
-            <div className="flex-1 flex items-center relative min-h-[160px] bg-neutral-50 dark:bg-neutral-900/50 py-4">
+            {/* Projects Container - Animation with hidden scrollbar */}
+            <div className="flex-1 flex items-center relative bg-neutral-50 dark:bg-neutral-900/50 p-4 overflow-hidden">
                 {/* Gradients */}
-                <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-neutral-50 to-transparent dark:from-neutral-900 dark:to-transparent z-10" />
-                <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-neutral-50 to-transparent dark:from-neutral-900 dark:to-transparent z-10" />
+                <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-neutral-50 to-transparent dark:from-neutral-900 dark:to-transparent z-10 pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-neutral-50 to-transparent dark:from-neutral-900 dark:to-transparent z-10 pointer-events-none" />
 
-                <div className="flex overflow-hidden">
+                <div className="flex overflow-hidden w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                     <motion.div
-                        className="flex gap-4 px-4"
+                        className="flex gap-4 px-2"
                         animate={{ x: ["0%", "-50%"] }}
-                        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                         style={{ width: "fit-content" }}
                     >
                         {[...projects, ...projects].map((project, idx) => (
                             <div
                                 key={`${project.id}-${idx}`}
-                                className="w-48 h-32 md:w-56 md:h-36 rounded-xl overflow-hidden shadow-sm border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-800 flex-shrink-0 flex flex-col"
+                                className="w-72 h-48 md:w-80 md:h-52 lg:w-96 lg:h-56 rounded-xl overflow-hidden shadow-md border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-800 flex-shrink-0 flex flex-col group/item hover:scale-[1.02] transition-transform"
                             >
                                 {/* Thumbnail */}
-                                <div className={`h-2/3 w-full ${project.color} opacity-80 relative overflow-hidden`}>
+                                <div className={`h-3/4 w-full ${project.color} opacity-90 relative overflow-hidden`}>
                                     {project.image ? (
                                         <Image
                                             src={project.image}
                                             alt={project.title}
                                             fill
-                                            className="object-cover"
-                                            sizes="(max-width: 768px) 192px, 224px"
+                                            className="object-cover group-hover/item:scale-105 transition-transform duration-300"
+                                            sizes="(max-width: 768px) 288px, (max-width: 1024px) 320px, 384px"
                                         />
                                     ) : null}
                                 </div>
-                                <div className="p-2 flex-1 flex flex-col justify-center">
-                                    <p className="font-semibold text-xs truncate">{project.title}</p>
-                                    <p className="text-[10px] text-neutral-500 dark:text-neutral-400">{project.type}</p>
+                                <div className="p-3 flex-1 flex flex-col justify-center bg-white dark:bg-neutral-800">
+                                    <p className="font-semibold text-sm truncate">{project.title}</p>
+                                    <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">{project.type}</p>
                                 </div>
                             </div>
                         ))}
