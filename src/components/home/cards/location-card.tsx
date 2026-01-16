@@ -44,7 +44,8 @@ export function LocationCard() {
                             height: "100%",
                             maxHeight: "100%",
                         }}
-                        styleFunction={(countryCode: string) => {
+                        styleFunction={(context) => {
+                            const countryCode = context.countryCode
                             const country = visitedCountries[countryCode as keyof typeof visitedCountries]
                             if (!country) {
                                 return {
