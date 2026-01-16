@@ -4,6 +4,7 @@ import { Card, CardContent, CardTitle } from "@/components/ui/card"
 import { Globe, MapPin } from "lucide-react"
 import WorldMap from "react-svg-worldmap"
 import { motion } from "framer-motion"
+import { useState, useEffect } from "react"
 
 // Countries you've been to with their ISO codes
 const visitedCountries = {
@@ -14,12 +15,19 @@ const visitedCountries = {
 }
 
 export function LocationCard() {
+    const [mounted, setMounted] = useState(false)
+
+    useEffect(() => {
+        setMounted(true)
+    }, [])
+
     return (
         <Card className="h-full relative overflow-hidden flex flex-col p-6 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-300 group cursor-pointer">
             {/* World Map - More visible on hover - showing entire world */}
             <div className="absolute inset-0 opacity-30 dark:opacity-20 pointer-events-none group-hover:opacity-100 dark:group-hover:opacity-90 transition-opacity duration-300 overflow-hidden flex items-center justify-center">
                 <div className="relative w-full h-full scale-100 group-hover:scale-100 transition-transform duration-300 flex items-center justify-center">
-                    <WorldMap
+                    {mounted && (
+                        <WorldMap
                         color="#d1d5db"
                         size="responsive"
                         data={Object.entries(visitedCountries).map(([country, config]) => ({
@@ -57,7 +65,8 @@ export function LocationCard() {
                                 cursor: "default",
                             }
                         }}
-                    />
+                        />
+                    )}
                     
                     {/* Pin markers overlay - positioned using your coordinates */}
                     
