@@ -1,11 +1,11 @@
 import { CtaSection } from "@/components/cta-section";
 
 const skills = {
-    Languages: ["Python", "TypeScript", "JavaScript", "Dart", "Swift", "SQL"],
-    Frontend: ["React", "Flutter", "React Native", "SwiftUI", "Tailwind CSS"],
-    Backend: ["Django", "Flask", "Node.js", "Firebase", "MongoDB", "MySQL"],
-    "AI & ML": ["PyTorch", "TensorFlow", "Scikit-learn", "Computer Vision", "NLP"],
-    Tools: ["Git", "Docker", "AWS", "Supabase", "Figma"],
+    Languages: ["Python", "TypeScript", "C++", "Java", "SQL", "JavaScript", "MATLAB"],
+    "AI/ML": ["TensorFlow", "PyTorch", "Scikit-learn", "NLP", "Deep Learning", "Computer Vision", "Sensor Fusion"],
+    Robotics: ["ROS", "Robot Studio", "RAPID", "Robot Navigation", "Path Planning", "Motion Control"],
+    Frameworks: ["Django", "Flask", "Node.js", "Firebase", "MongoDB", "MySQL", "AWS", "Azure"],
+    "Front End": ["Flutter", "React", "React Native", "SwiftUI"],
 };
 
 const experience = [

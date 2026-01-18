@@ -33,7 +33,7 @@ export function Footer() {
                     <ul className="space-y-2 text-sm text-neutral-500 dark:text-neutral-400">
                         <li><Link href="/" className="hover:text-neutral-900 dark:hover:text-neutral-50">Home</Link></li>
                         <li><Link href="/about" className="hover:text-neutral-900 dark:hover:text-neutral-50">About</Link></li>
-                        <li><Link href="/resume" className="hover:text-neutral-900 dark:hover:text-neutral-50">Resume</Link></li>
+                        <li><a href="/resume.pdf" download="Sabiq-Sabry-Resume.pdf" className="hover:text-neutral-900 dark:hover:text-neutral-50">Resume</a></li>
                         <li><Link href="/contact" className="hover:text-neutral-900 dark:hover:text-neutral-50">Contact</Link></li>
                         <li><Link href="/sitemap" className="hover:text-neutral-900 dark:hover:text-neutral-50">Sitemap</Link></li>
                     </ul>
