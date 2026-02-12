@@ -7,6 +7,14 @@ import { Button } from "@/components/ui/button";
 
 const projects = [
     {
+        title: "Carbon Compass",
+        category: "AI & ML",
+        description: "AI-powered sustainability report analyser and emissions calculator. Fact-checks corporate climate claims using NLP. Python, React, FastAPI.",
+        color: "bg-teal-700",
+        image: "/assets/carbon-compass.png",
+        href: "https://github.com/sabiqsabry/Carbon-Compass",
+    },
+    {
         title: "Spa Ceylon AI Assistant",
         category: "AI & ML",
         description: "Claude-powered WhatsApp-style chatbot with ritual knowledge and Dosha quiz. Node.js, React, Claude AI.",

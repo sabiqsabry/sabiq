@@ -25,6 +25,13 @@ import { Footer } from "@/components/footer";
 export const metadata: Metadata = {
   title: "Sabiq Sabry | AI Engineer",
   description: "AI Engineer building intelligent systems.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({
