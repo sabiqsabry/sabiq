@@ -21,7 +21,9 @@ export default function ProductsPage() {
 
             <ProductsList />
 
-            <CtaSection />
+            <div className="mt-20">
+                <CtaSection />
+            </div>
         </div>
     );
 }
