@@ -12,6 +12,7 @@ const navItems = [
     { name: "Home", href: "/" },
     { name: "Work", href: "/work" },
     { name: "Services", href: "/services" },
+    { name: "Products", href: "/products" },
     { name: "About", href: "/about" },
 ]
 
@@ -76,8 +77,8 @@ export function Header() {
 
                     {/* Contact Button & Mobile Toggle */}
                     <div className="flex items-center gap-2">
-                        <Button 
-                            asChild 
+                        <Button
+                            asChild
                             variant="outline"
                             className={cn(
                                 "hidden md:inline-flex rounded-full transition-all duration-300",

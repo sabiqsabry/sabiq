@@ -45,6 +45,7 @@ export function Footer() {
                     <ul className="space-y-2 text-sm text-neutral-500 dark:text-neutral-400">
                         <li><Link href="/work" className="hover:text-neutral-900 dark:hover:text-neutral-50">Work</Link></li>
                         <li><Link href="/work" className="hover:text-neutral-900 dark:hover:text-neutral-50">Projects</Link></li>
+                        <li><Link href="/products" className="hover:text-neutral-900 dark:hover:text-neutral-50">Products</Link></li>
                     </ul>
                 </div>
 
