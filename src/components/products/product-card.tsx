@@ -181,18 +181,21 @@ export function ProductCard({ product }: ProductCardProps) {
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
                             className="relative w-full max-w-2xl max-h-[80vh] bg-white dark:bg-neutral-900 rounded-3xl shadow-2xl overflow-hidden flex flex-col border border-neutral-200 dark:border-neutral-800"
                         >
-                            <div className="p-6 border-b border-neutral-100 dark:border-neutral-800 flex items-center justify-between bg-white/50 dark:bg-neutral-900/50 backdrop-blur-md sticky top-0 z-10">
-                                <div className="flex items-center gap-3">
-                                    <div className="w-10 h-10 rounded-xl overflow-hidden">
+                            <div className="p-6 border-b border-neutral-100 dark:border-neutral-800 flex items-center justify-between bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl sticky top-0 z-10">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-12 h-12 rounded-[12px] overflow-hidden shadow-sm border border-neutral-100 dark:border-neutral-800">
                                         <Image
                                             src={product.icon}
                                             alt={product.name}
-                                            width={40}
-                                            height={40}
+                                            width={48}
+                                            height={48}
                                             className="w-full h-full object-cover"
                                         />
                                     </div>
-                                    <h2 className="text-xl font-bold text-neutral-900 dark:text-neutral-50">Privacy Policy</h2>
+                                    <div>
+                                        <h2 className="text-xl font-bold text-neutral-900 dark:text-neutral-50 leading-tight">Privacy Policy</h2>
+                                        <p className="text-xs text-neutral-500 dark:text-neutral-400">for {product.name}</p>
+                                    </div>
                                 </div>
                                 <button
                                     onClick={() => setIsPrivacyOpen(false)}
@@ -203,8 +206,43 @@ export function ProductCard({ product }: ProductCardProps) {
                             </div>
                             <div className="p-8 md:p-10 overflow-y-auto custom-scrollbar text-neutral-600 dark:text-neutral-400">
                                 <div className="prose prose-neutral dark:prose-invert max-w-none">
-                                    <div className="text-sm leading-relaxed whitespace-pre-line space-y-4">
-                                        {product.privacyPolicy}
+                                    <div className="text-sm leading-relaxed space-y-6">
+                                        {product.privacyPolicy?.split("\n\n").map((block, i) => {
+                                            if (block.startsWith("## ")) {
+                                                return (
+                                                    <h2 key={i} className="text-xl font-bold text-neutral-900 dark:text-neutral-50 border-b border-neutral-100 dark:border-neutral-800 pb-2 mt-8 first:mt-0">
+                                                        {block.replace("## ", "")}
+                                                    </h2>
+                                                )
+                                            }
+                                            if (block.startsWith("### ")) {
+                                                return (
+                                                    <h3 key={i} className="text-lg font-bold text-neutral-800 dark:text-neutral-100 mt-6">
+                                                        {block.replace("### ", "")}
+                                                    </h3>
+                                                )
+                                            }
+                                            if (block.includes("\n* ") || block.startsWith("* ")) {
+                                                const lines = block.split("\n")
+                                                const intro = lines[0].startsWith("* ") ? "" : lines[0]
+                                                const items = lines.filter((l) => l.trim().startsWith("* "))
+                                                return (
+                                                    <div key={i} className="space-y-2">
+                                                        {intro && <p>{intro}</p>}
+                                                        <ul className="list-disc pl-5 space-y-1">
+                                                            {items.map((item, j) => (
+                                                                <li key={j}>{item.replace("* ", "").trim()}</li>
+                                                            ))}
+                                                        </ul>
+                                                    </div>
+                                                )
+                                            }
+                                            return (
+                                                <p key={i} className="whitespace-pre-line">
+                                                    {block}
+                                                </p>
+                                            )
+                                        })}
                                     </div>
                                 </div>
                             </div>
