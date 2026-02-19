@@ -20,9 +20,92 @@ export interface Product {
     developer: string;
     badge?: string; // e.g. "New", "Beta", "Coming Soon"
     comingSoon?: string; // text for upcoming platforms
+    privacyPolicy?: string; // detailed privacy policy text
 }
 
 export const products: Product[] = [
+    {
+        id: "sky-said-so",
+        name: "Sky Said So",
+        tagline: "Just weather. The way it should be.",
+        description:
+            "Sky Said So is a clean, minimal weather app that tells you exactly what the sky has planned — no clutter, no noise, no unnecessary distractions.\n\nBold, typography-driven design and a clean layout make it easy to read. Get accurate, up-to-date weather based on your location including current temperature, feels-like, humidity, wind speed, and detailed forecasts.",
+        icon: "/products/sky-said-so/icon.png",
+        features: [
+            "Bold, typography-driven design",
+            "Minimal and easy to read",
+            "Slightly witty forecast summaries",
+            "Smooth, modern interface",
+            "Real-time weather based on location",
+            "No ads. No tracking. No nonsense.",
+        ],
+        platforms: ["ios", "android"],
+        downloads: [
+            {
+                platform: "ios",
+                url: "#",
+                label: "App Store",
+                external: true,
+            },
+            {
+                platform: "android",
+                url: "#",
+                label: "Play Store",
+                external: true,
+            },
+        ],
+        developer: "Sabiq Sabry — novusian",
+        privacyPolicy: `## Privacy Policy for Sky Said So
+
+Effective Date: February 20, 2026
+
+Sky Said So (“we”, “our”, or “the app”) respects your privacy.
+
+### Information We Collect
+
+Sky Said So requests access to your device’s location in order to provide accurate weather forecasts.
+
+Users may choose to grant:
+* Approximate location, or
+* Precise location
+
+Location data is used only at the time of the request to retrieve weather information.
+
+We do not:
+* Store your location
+* Track your movements
+* Retain location history
+* Share your personal data with third parties for marketing purposes
+
+### Data Usage
+
+Location information is transmitted securely to a third-party weather API solely to retrieve forecast data.
+
+Sky Said So does not maintain its own servers that store personal user data.
+
+### Advertising
+
+Sky Said So does not display advertisements.
+
+### Analytics
+
+Sky Said So does not use analytics tools to track user behavior.
+
+### Children’s Privacy
+
+Sky Said So does not knowingly collect personal information from children.
+
+### Changes to This Policy
+
+We may update this Privacy Policy in the future. Any changes will be reflected on this page.
+
+### Contact
+
+If you have questions about this Privacy Policy, please contact:
+
+Sabiq Sabry - novusian
+sabiqsabry48@gmail.com / novusian.sabiq@gmail.com`,
+    },
     {
         id: "blankr",
         name: "Blankr.",
