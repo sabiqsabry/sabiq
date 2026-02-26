@@ -56,24 +56,34 @@ export default async function PrivacyPage({ params }: PrivacyPageProps) {
             <div className="prose prose-neutral dark:prose-invert max-w-none">
                 <div className="text-neutral-600 dark:text-neutral-400 leading-relaxed md:text-lg space-y-8">
                     {product.privacyPolicy.split("\n\n").map((block, i) => {
-                        if (block.startsWith("## ")) {
+                        const lines = block.split("\n")
+                        const firstLine = lines[0]
+                        const remainingContent = lines.slice(1).join("\n")
+
+                        if (firstLine.startsWith("## ")) {
                             return (
-                                <h2 key={i} className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-neutral-50 border-b border-neutral-100 dark:border-neutral-800 pb-4 mt-12 first:mt-0">
-                                    {block.replace("## ", "")}
-                                </h2>
+                                <div key={i} className="space-y-4">
+                                    <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-neutral-50 border-b border-neutral-100 dark:border-neutral-800 pb-4 mt-12 first:mt-0">
+                                        {firstLine.replace("## ", "")}
+                                    </h2>
+                                    {remainingContent && <p className="whitespace-pre-line">{remainingContent}</p>}
+                                </div>
                             )
                         }
-                        if (block.startsWith("### ")) {
+                        if (firstLine.startsWith("### ")) {
                             return (
-                                <h3 key={i} className="text-xl md:text-2xl font-bold text-neutral-800 dark:text-neutral-100 mt-8">
-                                    {block.replace("### ", "")}
-                                </h3>
+                                <div key={i} className="space-y-4">
+                                    <h3 className="text-xl md:text-2xl font-bold text-neutral-800 dark:text-neutral-100 mt-8">
+                                        {firstLine.replace("### ", "")}
+                                    </h3>
+                                    {remainingContent && <p className="whitespace-pre-line">{remainingContent}</p>}
+                                </div>
                             )
                         }
                         if (block.includes("\n* ") || block.startsWith("* ")) {
-                            const lines = block.split("\n")
-                            const intro = lines[0].startsWith("* ") ? "" : lines[0]
-                            const items = lines.filter((l) => l.trim().startsWith("* "))
+                            const listLines = block.split("\n")
+                            const intro = listLines[0].startsWith("* ") ? "" : listLines[0]
+                            const items = listLines.filter((l) => l.trim().startsWith("* "))
                             return (
                                 <div key={i} className="space-y-4">
                                     {intro && <p>{intro}</p>}
