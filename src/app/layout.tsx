@@ -23,6 +23,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sabiq.dev"),
   title: "Sabiq Sabry | AI Engineer",
   description: "AI Engineer building intelligent systems.",
   icons: {
@@ -31,6 +32,28 @@ export const metadata: Metadata = {
       { url: "/icon.png", type: "image/png" },
     ],
     apple: "/apple-icon.png",
+  },
+  openGraph: {
+    title: "Sabiq Sabry | AI Engineer",
+    description: "AI Engineer building intelligent systems.",
+    url: "https://sabiq.dev",
+    siteName: "Sabiq Sabry | Portfolio",
+    images: [
+      {
+        url: "/icon.png",
+        width: 800,
+        height: 800,
+        alt: "Sabiq Sabry Portfolio",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sabiq Sabry | AI Engineer",
+    description: "AI Engineer building intelligent systems.",
+    images: ["/icon.png"],
   },
 };
 
