@@ -39,7 +39,7 @@ export const products: Product[] = [
             "Offline-friendly with local rate caching",
             "No ads. No accounts. No tracking.",
         ],
-        platforms: ["android"],
+        platforms: ["android", "ios"],
         downloads: [
             {
                 platform: "android",
@@ -48,6 +48,7 @@ export const products: Product[] = [
                 external: true,
             },
         ],
+        comingSoon: "iOS version coming soon.",
         developer: "Sabiq Sabry — novusian",
         privacyPolicy: `## Privacy Policy for Paisa Convert
 Effective Date: February 26, 2026
@@ -108,18 +109,13 @@ If you have any questions or concerns about this Privacy Policy, please reach ou
         platforms: ["ios", "android"],
         downloads: [
             {
-                platform: "ios",
-                url: "#",
-                label: "App Store",
-                external: true,
-            },
-            {
                 platform: "android",
                 url: "#",
                 label: "Play Store",
                 external: true,
             },
         ],
+        comingSoon: "iOS version coming soon.",
         developer: "Sabiq Sabry — novusian",
         privacyPolicy: `## Privacy Policy for Sky Said So
 
