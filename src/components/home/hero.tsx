@@ -27,7 +27,7 @@ export function Hero() {
                     className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white dark:border-neutral-800 shadow-xl"
                 >
                     <Image
-                        src="/assets/sabiq-profile.jpg"
+                        src="/assets/sabiq-profile.png"
                         alt="Sabiq Sabry"
                         fill
                         className="object-cover"
