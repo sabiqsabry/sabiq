@@ -6,6 +6,8 @@ export interface DownloadLink {
     label: string;
     /** If true, this is an external store link (App Store / Play Store) */
     external?: boolean;
+    /** If true, the button is rendered as "Coming Soon" with no link */
+    comingSoon?: boolean;
 }
 
 export interface Product {
@@ -46,15 +48,16 @@ export const products: Product[] = [
                 url: "#",
                 label: "App Store",
                 external: true,
+                comingSoon: true,
             },
             {
                 platform: "android",
                 url: "#",
                 label: "Play Store",
                 external: true,
+                comingSoon: true,
             },
         ],
-        comingSoon: "Available soon on App Store and Play Store.",
         developer: "Sabiq Sabry — novusian",
         privacyPolicy: `## Privacy Policy — Pash
 Last updated: March 15, 2026
@@ -141,13 +144,19 @@ If you have any questions or concerns about this Privacy Policy, please reach ou
         platforms: ["android", "ios"],
         downloads: [
             {
+                platform: "ios",
+                url: "#",
+                label: "App Store",
+                external: true,
+                comingSoon: true,
+            },
+            {
                 platform: "android",
                 url: "#",
                 label: "Play Store",
                 external: true,
             },
         ],
-        comingSoon: "iOS version coming soon.",
         developer: "Sabiq Sabry — novusian",
         privacyPolicy: `## Privacy Policy for Paisa Convert
 Effective Date: February 26, 2026
@@ -208,13 +217,19 @@ If you have any questions or concerns about this Privacy Policy, please reach ou
         platforms: ["ios", "android"],
         downloads: [
             {
+                platform: "ios",
+                url: "#",
+                label: "App Store",
+                external: true,
+                comingSoon: true,
+            },
+            {
                 platform: "android",
                 url: "#",
                 label: "Play Store",
                 external: true,
             },
         ],
-        comingSoon: "iOS version coming soon.",
         developer: "Sabiq Sabry — novusian",
         privacyPolicy: `## Privacy Policy for Sky Said So
 

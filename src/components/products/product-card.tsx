@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Download, ExternalLink, Check, Monitor, ShieldCheck } from "lucide-react"
+import { Download, ExternalLink, Check, Monitor, ShieldCheck, Smartphone } from "lucide-react"
 import { Product, Platform } from "./products-data"
 
 const platformConfig: Record<Platform, { label: string; color: string }> = {
@@ -89,8 +89,22 @@ export function ProductCard({ product }: ProductCardProps) {
                     <div className="flex flex-wrap gap-3 pt-1">
                         {product.downloads.map((dl) => {
                             const cfg = platformConfig[dl.platform]
-                            const isExternal = dl.external
-                            return isExternal ? (
+                            const isMobile = dl.platform === "ios" || dl.platform === "android"
+                            const Icon = isMobile ? Smartphone : Monitor
+
+                            if (dl.comingSoon) {
+                                return (
+                                    <span
+                                        key={dl.platform}
+                                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-neutral-200 dark:border-neutral-700 text-neutral-500 dark:text-neutral-400 text-sm font-medium cursor-default"
+                                    >
+                                        <Icon className="h-3.5 w-3.5" />
+                                        {dl.label}
+                                    </span>
+                                )
+                            }
+
+                            return dl.external ? (
                                 <Link
                                     key={dl.platform}
                                     href={dl.url}
