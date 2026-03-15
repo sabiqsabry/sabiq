@@ -25,6 +25,105 @@ export interface Product {
 
 export const products: Product[] = [
     {
+        id: "pash",
+        name: "Pash",
+        tagline: "AI-Powered Personal Finance & Expense Splitting",
+        description:
+            "Pash is a smart, AI-powered bill-splitting and personal finance application. Create expense splits, track balances, manage group expenses, and handle payments seamlessly. Connect with friends and let Pash do the math for you.\n\nBuilt for speed and simplicity. Sign in via Google or email, and start splitting expenses securely with encrypted cloud storage.",
+        icon: "/products/pash/icon.png",
+        features: [
+            "AI-powered expense splitting",
+            "Group expense & balance management",
+            "Payment and settlement tracking",
+            "Google & Email Authentication",
+            "Secure cloud storage with Supabase",
+            "No ads. Data is encrypted and private.",
+        ],
+        platforms: ["ios", "android"],
+        downloads: [
+            {
+                platform: "ios",
+                url: "#",
+                label: "App Store",
+                external: true,
+            },
+            {
+                platform: "android",
+                url: "#",
+                label: "Play Store",
+                external: true,
+            },
+        ],
+        comingSoon: "Available soon on App Store and Play Store.",
+        developer: "Sabiq Sabry — novusian",
+        privacyPolicy: `## Privacy Policy — Pash
+Last updated: March 15, 2026
+
+### 1. Overview
+Pash ("the App") is a bill-splitting application developed by Sabiq Sabry. This policy explains what personal data the App collects, how it is used, and your rights regarding that data.
+
+### 2. Data We Collect
+
+**Account Information**
+* Email address (used for authentication)
+* Display name
+* Username (chosen by you during setup)
+* Profile photo (only if you sign in with Google, pulled from your Google account)
+
+**Usage Data**
+* Expense splits you create: description, total amount, currency, split type
+* Participants in your splits (by name or linked username)
+* Payment and settlement records you record
+* Groups you create or belong to
+* Friend connections you establish within the app
+* In-app notifications sent to your account
+
+**Authentication Data**
+* If you sign in with Google, we receive your name, email, and profile photo from Google via OAuth 2.0. We do not store your Google password.
+* If you sign in with email/password, your password is hashed and managed by Supabase Auth. We never have access to your plain-text password.
+
+**Device / Technical Data**
+We do not collect device identifiers, location data, advertising IDs, or usage analytics beyond what is described above.
+
+### 3. How We Use Your Data
+* To provide core app functionality (creating splits, tracking balances, notifying participants)
+* To identify you to other users you choose to connect with
+* To send you in-app notifications about splits and payments involving you
+
+We do not sell your data. We do not use your data for advertising. We do not share your data with third parties except as described in Section 4.
+
+### 4. Third-Party Services
+**Supabase**
+All data is stored in a Supabase-managed PostgreSQL database hosted on AWS infrastructure. Supabase is used for authentication, database storage, and row-level security enforcement. Supabase's privacy policy applies to infrastructure-level data handling: https://supabase.com/privacy
+
+**Google OAuth**
+If you choose to sign in with Google, authentication is handled via Google's OAuth 2.0 service. Google's privacy policy applies to that sign-in flow: https://policies.google.com/privacy
+
+### 5. Data Retention
+Your data is retained for as long as your account is active. If you wish to delete your account and associated data, contact us at the email below and we will process your request.
+
+### 6. Data Security
+All data is transmitted over HTTPS. Database access is protected by row-level security (RLS) policies — users can only read and write data they are authorized to access. Authentication tokens are managed by Supabase Auth.
+
+### 7. Children's Privacy
+Pash is not directed at children under 13. We do not knowingly collect personal data from children under 13. If you believe a child has provided us with personal data, contact us and we will delete it.
+
+### 8. Your Rights
+Depending on your jurisdiction, you may have the right to:
+* Access the personal data we hold about you
+* Request correction of inaccurate data
+* Request deletion of your account and data
+* Withdraw consent at any time
+
+To exercise any of these rights, contact us at the email below.
+
+### 9. Changes to This Policy
+We may update this policy from time to time. The "Last updated" date at the top will reflect any changes. Continued use of the App after changes constitutes acceptance of the updated policy.
+
+### 10. Contact
+If you have any questions or concerns about this Privacy Policy, please reach out via the contact information listed on the developer's portfolio.`,
+    },
+    {
         id: "paisa-convert",
         name: "Paisa Convert",
         tagline: "Currency Converter",
