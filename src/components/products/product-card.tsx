@@ -56,28 +56,28 @@ export function ProductCard({ product }: ProductCardProps) {
                 {/* Info */}
                 <div className="flex-1 space-y-4">
                     {/* Name + platforms */}
-                    <div className="flex flex-wrap items-start gap-3">
-                        <div>
+                    <div className="flex flex-col gap-1">
+                        <div className="flex flex-wrap items-center gap-[15px]">
                             <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-neutral-50 leading-tight">
                                 {product.name}
                             </h2>
-                            <p className="text-neutral-500 dark:text-neutral-400 text-base mt-1">
-                                {product.tagline}
-                            </p>
+                            <div className="flex flex-wrap gap-2">
+                                {product.platforms.map((p) => {
+                                    const cfg = platformConfig[p]
+                                    return (
+                                        <span
+                                            key={p}
+                                            className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium ${cfg.color}`}
+                                        >
+                                            {cfg.label}
+                                        </span>
+                                    )
+                                })}
+                            </div>
                         </div>
-                        <div className="flex flex-wrap gap-2 mt-1">
-                            {product.platforms.map((p) => {
-                                const cfg = platformConfig[p]
-                                return (
-                                    <span
-                                        key={p}
-                                        className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium ${cfg.color}`}
-                                    >
-                                        {cfg.label}
-                                    </span>
-                                )
-                            })}
-                        </div>
+                        <p className="text-neutral-500 dark:text-neutral-400 text-base">
+                            {product.tagline}
+                        </p>
                     </div>
 
                     {/* Description */}
