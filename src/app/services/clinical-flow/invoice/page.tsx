@@ -12,7 +12,7 @@ export default function InvoicePage() {
 
     const handleUnlock = (e: React.FormEvent) => {
         e.preventDefault();
-        if (passwordInput === "yashen@CSEM") {
+        if (passwordInput === "navien@CSEM") {
             setIsUnlocked(true);
             setErrorMsg("");
         } else {
