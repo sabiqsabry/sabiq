@@ -5,6 +5,7 @@ import { X, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { LighthouseCard } from "@/components/services/lighthouse-card";
+import { ClinicalFlowCard } from "@/components/services/clinical-flow-card";
 
 const projects = [
     {
@@ -14,6 +15,14 @@ const projects = [
         description: "A premium digital platform showcasing a legacy of massive historical events and international concerts.",
         logo: "/projects/lighthouse/logo-white.jpg",
         image: "/projects/lighthouse/logo-white.jpg",
+    },
+    {
+        id: "clinical-flow",
+        title: "Clinical Flow",
+        category: "Healthcare App",
+        description: "A full-stack workflow management system digitizing the entire patient journey for CSEM.",
+        logo: "/projects/clinical-flow/logo.png",
+        image: "/projects/clinical-flow/logo.png",
     }
 ];
 
@@ -104,6 +113,7 @@ export function ClientProjectsGrid() {
                             
                             {/* Render the specific project card detail based on ID */}
                             {selectedProject === "lighthouse" && <LighthouseCard />}
+                            {selectedProject === "clinical-flow" && <ClinicalFlowCard />}
                         </motion.div>
                     </div>
                 )}

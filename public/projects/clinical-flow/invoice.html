@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice - novusian | Clinical Flow</title>
+    <style>
+        :root {
+            --bg-color: #f5f5f7;
+            --container-bg: #ffffff;
+            --text-main: #1d1d1f;
+            --text-secondary: #86868b;
+            --border: #d2d2d7;
+            --accent: #0066cc;
+            --radius: 18px;
+            --badge-pending-bg: #fff8e6;
+            --badge-pending-text: #d97706;
+            --badge-pending-border: #fde68a;
+            --badge-paid-bg: #ecfdf5;
+            --badge-paid-text: #059669;
+            --badge-paid-border: #a7f3d0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 4.5rem 1.5rem 3rem 1.5rem;
+            line-height: 1.47059;
+            font-weight: 400;
+            letter-spacing: -0.022em;
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background-color: var(--container-bg);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+            padding: 4rem 5rem;
+            box-sizing: border-box;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .brand img {
+            max-height: 56px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .brand h1 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: var(--text-main);
+        }
+
+        .invoice-title {
+            text-align: right;
+        }
+
+        .invoice-title h2 {
+            margin: 0 0 0.5rem 0;
+            font-size: 36px;
+            font-weight: 600;
+            letter-spacing: -0.003em;
+            color: var(--text-main);
+        }
+
+        .invoice-title-row {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        .invoice-title p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
+        .status-badge {
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .status-badge.pending {
+            background-color: var(--badge-pending-bg);
+            color: var(--badge-pending-text);
+            border: 1px solid var(--badge-pending-border);
+        }
+
+        .status-badge.paid {
+            background-color: var(--badge-paid-bg);
+            color: var(--badge-paid-text);
+            border: 1px solid var(--badge-paid-border);
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .details-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-secondary);
+            margin-bottom: 0.4rem;
+        }
+
+        .details-value {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .invoice-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 3rem;
+        }
+
+        .invoice-table th {
+            text-align: left;
+            padding: 0 0 1rem 0;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .invoice-table th.right {
+            text-align: right;
+        }
+
+        .invoice-table td {
+            padding: 1.75rem 0;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        .item-row:last-child td {
+            border-bottom: none;
+        }
+
+        .item-number {
+            color: var(--text-secondary);
+            font-variant-numeric: tabular-nums;
+            width: 5%;
+            transition: color 0.3s ease;
+        }
+
+        .item-desc {
+            width: 70%;
+            padding-right: 3rem;
+        }
+
+        .item-title {
+            margin: 0 0 0.35rem 0;
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .item-text {
+            margin: 0;
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .item-amount {
+            width: 25%;
+            text-align: right;
+            font-size: 17px;
+            font-weight: 500;
+            color: var(--text-main);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .summary-section {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 4rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .summary-box {
+            width: 320px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.6rem 0;
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        .summary-row span:last-child {
+            font-variant-numeric: tabular-nums;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .summary-row.discount span:last-child {
+            color: #059669;
+        }
+
+        .summary-row.total {
+            margin-top: 0.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .payment-section {
+            background-color: var(--bg-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+        }
+
+        .payment-title {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .payment-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .payment-item-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .payment-item-value {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .payment-item-sub {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        @media print {
+            :root {
+                --bg-color: #ffffff !important;
+                --container-bg: #ffffff !important;
+                --text-main: #1d1d1f !important;
+                --text-secondary: #86868b !important;
+                --border: #d2d2d7 !important;
+            }
+            body { 
+                background: white !important; 
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .container { 
+                box-shadow: none !important; 
+                border-radius: 0 !important;
+                padding: 2rem 0 !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+            }
+            .payment-section {
+                border: 1px solid var(--border) !important;
+                background-color: transparent !important;
+            }
+            .theme-toggle {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <div class="brand">
+                <img src="/Volumes/Sabiq/Coding/Novusian/Logo/png/social image 1.png" alt="novusian Logo" onerror="this.style.display='none'">
+                <h1>novusian</h1>
+            </div>
+            <div class="invoice-title">
+                <h2>Invoice</h2>
+                <div class="invoice-title-row">
+                    <span class="status-badge pending">Pending</span>
+                    <p>INV-2026-018</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-grid">
+            <div>
+                <div class="details-label">Billed To</div>
+                <div class="details-value">Clinical Flow</div>
+            </div>
+            <div>
+                <div class="details-label">Project</div>
+                <div class="details-value">Platform Web App</div>
+            </div>
+            <div>
+                <div class="details-label">Date of Issue</div>
+                <div class="details-value" id="current-date"></div>
+            </div>
+            <div>
+                <div class="details-label">Payment Terms</div>
+                <div class="details-value">Due on Receipt</div>
+            </div>
+        </div>
+
+        <table class="invoice-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Description</th>
+                    <th class="right">Amount (LKR)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="item-row">
+                    <td class="item-number">1</td>
+                    <td class="item-desc">
+                        <h3 class="item-title">Discovery & Requirements Analysis</h3>
+                        <p class="item-text">Stakeholder meetings, clinical workflow mapping, role-based access design, and full PRD documentation.</p>
+                    </td>
+                    <td class="item-amount">5,000</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="item-number">2</td>
+                    <td class="item-desc">
+                        <h3 class="item-title">UI/UX Design</h3>
+                        <p class="item-text">Wireframes, role-specific layouts, responsive design system built with shadcn/ui and Tailwind CSS.</p>
+                    </td>
+                    <td class="item-amount">10,000</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="item-number">3</td>
+                    <td class="item-desc">
+                        <h3 class="item-title">Authentication & Role Management</h3>
+                        <p class="item-text">4-role RBAC (admin, secretary, doctor, physio), JWT-based login, protected routes, and staff provisioning via Supabase Auth.</p>
+                    </td>
+                    <td class="item-amount">8,000</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="item-number">4</td>
+                    <td class="item-desc">
+                        <h3 class="item-title">Patient Registration Module</h3>
+                        <p class="item-text">Multi-section intake form with referral tracking, tiered package selection, payment status, and consent management.</p>
+                    </td>
+                    <td class="item-amount">9,000</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="item-number">5</td>
+                    <td class="item-desc">
+                        <h3 class="item-title">Doctor Assessment Module</h3>
+                        <p class="item-text">Comprehensive clinical form covering presenting complaint, past medical history, physical examination, investigations, and activity classification.</p>
+                    </td>
+                    <td class="item-amount">9,000</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="item-number">6</td>
+                    <td class="item-desc">
+                        <h3 class="item-title">Physiotherapy Assessment Module</h3>
+                        <p class="item-text">Full MSK evaluation including malalignment screening, scoliosis, knee patella tracking, pain rating, and body region mapping.</p>
+                    </td>
+                    <td class="item-amount">8,000</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="item-number">7</td>
+                    <td class="item-desc">
+                        <h3 class="item-title">Athlete Screening Module</h3>
+                        <p class="item-text">35-question pre-participation screening (Part 1 & 2), consent workflow, doctor evaluation, and clearance status management.</p>
+                    </td>
+                    <td class="item-amount">9,000</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="item-number">8</td>
+                    <td class="item-desc">
+                        <h3 class="item-title">Hydrotherapy Module</h3>
+                        <p class="item-text">Specialized thermal therapy session form with bath type classification, pre/post vital signs, thermal comfort ratings, and payment tracking.</p>
+                    </td>
+                    <td class="item-amount">7,000</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="item-number">9</td>
+                    <td class="item-desc">
+                        <h3 class="item-title">Continuation Records</h3>
+                        <p class="item-text">Follow-up visit tracking with session type classification, vital signs, exercise prescription, clinical notes, and automatic package session decrement.</p>
+                    </td>
+                    <td class="item-amount">8,000</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="item-number">10</td>
+                    <td class="item-desc">
+                        <h3 class="item-title">Calendar & Scheduling</h3>
+                        <p class="item-text">Appointment booking system with day/week calendar views, per-staff availability configuration, and date-based exception handling.</p>
+                    </td>
+                    <td class="item-amount">9,000</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="item-number">11</td>
+                    <td class="item-desc">
+                        <h3 class="item-title">Admin Panel</h3>
+                        <p class="item-text">Full staff user management, granular audit log with user attribution, summary reports, revenue tracking dashboard, and Excel/CSV export.</p>
+                    </td>
+                    <td class="item-amount">9,000</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="item-number">12</td>
+                    <td class="item-desc">
+                        <h3 class="item-title">Database Design & Security</h3>
+                        <p class="item-text">PostgreSQL schema design, Row-Level Security (RLS) policies across all tables, Supabase Auth + Storage integration, and SQL migration management.</p>
+                    </td>
+                    <td class="item-amount">10,000</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="item-number">13</td>
+                    <td class="item-desc">
+                        <h3 class="item-title">Deployment & Handover</h3>
+                        <p class="item-text">Vercel + Supabase Cloud production setup, environment configuration, technical documentation, and staff onboarding guides.</p>
+                    </td>
+                    <td class="item-amount">9,000</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="summary-section">
+            <div class="summary-box">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span>110,000</span>
+                </div>
+                <div class="summary-row discount">
+                    <span>New Client Discount</span>
+                    <span>-80,000</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total (LKR)</span>
+                    <div style="text-align: right; display: flex; flex-direction: column; gap: 0.25rem;">
+                        <span>30,000</span>
+                        <span style="font-size: 12px; color: var(--text-secondary); font-weight: 500;">≈ $95.24 USD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="payment-section">
+            <div class="payment-title">Primary Payment Details</div>
+            <div class="payment-grid" style="margin-bottom: 2.5rem;">
+                <div class="payment-item">
+                    <span class="payment-item-label">Bank</span>
+                    <span class="payment-item-value">Commercial Bank</span>
+                    <span class="payment-item-sub">Kolonnawa</span>
+                </div>
+                <div class="payment-item">
+                    <span class="payment-item-label">Account Name</span>
+                    <span class="payment-item-value">MSM Sabiq</span>
+                </div>
+                <div class="payment-item">
+                    <span class="payment-item-label">Account Number</span>
+                    <span class="payment-item-value">8005551312</span>
+                </div>
+            </div>
+
+            <div class="payment-title">Alternative Payment (UK)</div>
+            <div class="payment-grid">
+                <div class="payment-item">
+                    <span class="payment-item-label">Bank</span>
+                    <span class="payment-item-value">Monzo</span>
+                </div>
+                <div class="payment-item">
+                    <span class="payment-item-label">Account Name</span>
+                    <span class="payment-item-value">Fathima Hapsa Firthous</span>
+                </div>
+                <div class="payment-item">
+                    <span class="payment-item-label">Account Details</span>
+                    <span class="payment-item-value">38962354</span>
+                    <span class="payment-item-sub">Sort Code: 04-00-05</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const dateOptions = { year: 'numeric', month: 'short', day: 'numeric' };
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', dateOptions);
+    </script>
+</body>
+</html>
