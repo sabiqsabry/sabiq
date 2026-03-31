@@ -30,7 +30,7 @@ export function LocationCard() {
                             color="#d1d5db"
                             size="responsive"
                             data={Object.entries(visitedCountries).map(([country, config]) => ({
-                                country: country,
+                                country: country as any,
                                 value: config.value,
                             }))}
                             tooltipBgColor="#000000"
