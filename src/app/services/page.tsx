@@ -1,5 +1,7 @@
 import { ServicesList } from "@/components/services/services-list";
 import { CtaSection } from "@/components/cta-section";
+import { NovusianBrand } from "@/components/services/novusian-brand";
+import { ClientProjectsGrid } from "@/components/services/client-projects-grid";
 
 export default function ServicesPage() {
     return (
@@ -12,6 +14,11 @@ export default function ServicesPage() {
             </div>
 
             <ServicesList />
+
+            <div className="mt-20 mb-10 w-full flex flex-col">
+                <NovusianBrand />
+                <ClientProjectsGrid />
+            </div>
 
             <CtaSection />
         </div>
