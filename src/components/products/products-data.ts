@@ -29,12 +29,12 @@ export const products: Product[] = [
     {
         id: "pash",
         name: "Pash",
-        tagline: "AI-Powered Personal Finance & Expense Splitting",
+        tagline: "Personal Finance & Expense Splitting",
         description:
-            "Pash is a smart, AI-powered bill-splitting and personal finance application. Create expense splits, track balances, manage group expenses, and handle payments seamlessly. Connect with friends and let Pash do the math for you.\n\nBuilt for speed and simplicity. Sign in via Google or email, and start splitting expenses securely with encrypted cloud storage.",
+            "Pash is a smart bill-splitting and personal finance application. Create expense splits, track balances, manage group expenses, and handle payments seamlessly. Connect with friends and let Pash do the math for you.\n\nBuilt for speed and simplicity. Sign in via Google or email, and start splitting expenses securely with encrypted cloud storage.",
         icon: "/products/pash/icon.png",
         features: [
-            "AI-powered expense splitting",
+            "Smart expense splitting",
             "Group expense & balance management",
             "Payment and settlement tracking",
             "Google & Email Authentication",
