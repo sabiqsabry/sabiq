@@ -24,13 +24,15 @@ export default function InvoicePage() {
     if (isUnlocked) {
         return (
             <div className="w-full h-screen bg-neutral-100 flex flex-col">
-                <div className="h-14 bg-white dark:bg-neutral-950 border-b border-neutral-200 dark:border-neutral-800 px-6 flex items-center justify-between shadow-sm z-10 shrink-0">
-                    <div className="flex items-center gap-3">
-                        <FileText size={18} className="text-neutral-500" />
-                        <span className="text-sm font-medium text-neutral-900 dark:text-neutral-100">invoice.html</span>
+                <div className="h-14 bg-white dark:bg-neutral-950 border-b border-neutral-200 dark:border-neutral-800 px-4 md:px-6 flex items-center justify-between shadow-sm z-10 shrink-0">
+                    <div className="flex items-center gap-2 md:gap-3">
+                        <FileText size={18} className="text-neutral-500 shrink-0" />
+                        <span className="text-sm font-medium text-neutral-900 dark:text-neutral-100 truncate max-w-[120px] md:max-w-none">invoice.html</span>
                     </div>
                     <span className="text-xs px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 font-semibold rounded-md flex items-center gap-1">
-                        <Lock size={12}/> Secure Session Active
+                        <Lock size={12} className="shrink-0" /> 
+                        <span className="hidden sm:inline">Secure Session Active</span>
+                        <span className="sm:hidden">Secure</span>
                     </span>
                 </div>
                 <iframe 
@@ -43,8 +45,8 @@ export default function InvoicePage() {
     }
 
     return (
-        <div className="min-h-screen bg-neutral-50 dark:bg-neutral-950 flex flex-col items-center justify-center p-6 selection:bg-neutral-200 dark:selection:bg-neutral-800">
-            <Link href="/services" className="absolute top-8 left-8 text-neutral-500 hover:text-neutral-900 dark:hover:text-white flex items-center gap-2 text-sm font-medium transition-colors">
+        <div className="min-h-[100dvh] bg-neutral-50 dark:bg-neutral-950 flex flex-col items-center justify-center p-4 md:p-6 selection:bg-neutral-200 dark:selection:bg-neutral-800">
+            <Link href="/services" className="absolute top-6 left-6 md:top-8 md:left-8 text-neutral-500 hover:text-neutral-900 dark:hover:text-white flex items-center gap-2 text-sm font-medium transition-colors">
                 <ArrowLeft size={16} /> Back to Portfolio
             </Link>
 
@@ -52,7 +54,7 @@ export default function InvoicePage() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="w-full max-w-md bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-3xl p-8 shadow-xl"
+                className="w-full max-w-md bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-3xl p-6 md:p-8 shadow-xl"
             >
                 <div className="flex flex-col items-center text-center space-y-4 mb-8">
                     <div className="w-16 h-16 bg-neutral-100 dark:bg-neutral-800 rounded-full flex items-center justify-center mb-2">
