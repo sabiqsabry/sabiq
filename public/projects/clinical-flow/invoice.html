@@ -293,81 +293,68 @@
             color: var(--text-secondary);
         }
 
-        @media (max-width: 768px) {
-            body {
-                padding: 1rem 0;
-            }
-            .container {
-                padding: 2rem;
-                border-radius: 0;
-                box-shadow: none;
-            }
-            .header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 2rem;
-                margin-bottom: 2.5rem;
-                padding-bottom: 1.5rem;
-            }
-            .invoice-title {
-                text-align: left;
-            }
-            .invoice-title-row {
-                justify-content: flex-start;
-            }
-            .details-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 1.5rem;
-                margin-bottom: 3rem;
-            }
-            .item-desc {
-                padding-right: 1rem;
-                width: 60%;
-            }
-            .item-number {
-                width: 10%;
-            }
-            .item-amount {
-                width: 30%;
-            }
-            .summary-box {
-                width: 100%;
-            }
-            .payment-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
+        .download-btn {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--accent);
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            padding: 0.65rem 1.25rem;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            cursor: pointer;
+            box-shadow: 0 2px 12px rgba(0, 102, 204, 0.35);
+            transition: background-color 0.15s ease, box-shadow 0.15s ease;
+            z-index: 100;
+        }
+
+        .download-btn:hover {
+            background-color: #0055b3;
+            box-shadow: 0 4px 18px rgba(0, 102, 204, 0.45);
+        }
+
+        .download-btn:disabled {
+            opacity: 0.7;
+            cursor: wait;
+            box-shadow: none;
+        }
+
+        .download-btn svg {
+            flex-shrink: 0;
         }
 
         @media print {
-            :root {
-                --bg-color: #ffffff !important;
-                --container-bg: #ffffff !important;
-                --text-main: #1d1d1f !important;
-                --text-secondary: #86868b !important;
-                --border: #d2d2d7 !important;
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
 
             body {
                 background: white !important;
                 padding: 0 !important;
                 margin: 0 !important;
+                display: block !important;
             }
 
             .container {
                 box-shadow: none !important;
                 border-radius: 0 !important;
-                padding: 2rem 0 !important;
-                max-width: 100% !important;
                 margin: 0 !important;
             }
 
             .payment-section {
                 border: 1px solid var(--border) !important;
-                background-color: transparent !important;
+                background-color: #f5f5f7 !important;
             }
 
-            .theme-toggle {
+            .download-btn {
                 display: none !important;
             }
         }
@@ -375,6 +362,15 @@
 </head>
 
 <body>
+
+    <button type="button" class="download-btn" id="download-pdf-btn" aria-label="Download invoice as PDF">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        <span class="download-btn-label">Download PDF</span>
+    </button>
 
     <div class="container">
         <div class="header">
@@ -598,9 +594,91 @@
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+        // Set invoice date
         const dateOptions = { year: 'numeric', month: 'short', day: 'numeric' };
         document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', dateOptions);
+
+        async function downloadInvoicePdf() {
+            if (typeof html2pdf === 'undefined') {
+                alert('PDF library could not load. Check your connection, or use File → Print → Save as PDF.');
+                return;
+            }
+
+            const btn = document.getElementById('download-pdf-btn');
+            const label = btn.querySelector('.download-btn-label');
+            const invEl = document.querySelector('.invoice-title p');
+            const invNo = invEl ? invEl.textContent.trim().replace(/[^\w.-]+/g, '-') : 'invoice';
+
+            const element = document.querySelector('.container');
+            const pxW = element.scrollWidth;
+            const pxH = element.scrollHeight;
+            const mmW = Math.ceil((pxW * 25.4) / 96 + 24);
+            const mmH = Math.ceil((pxH * 25.4) / 96 + 24);
+
+            btn.disabled = true;
+            if (label) label.textContent = 'Generating…';
+
+            const opt = {
+                margin: [12, 12, 12, 12],
+                filename: `novusian-${invNo}.pdf`,
+                image: { type: 'jpeg', quality: 0.96 },
+                html2canvas: {
+                    scale: 2,
+                    useCORS: true,
+                    logging: false,
+                    scrollY: -window.scrollY,
+                    windowWidth: document.documentElement.offsetWidth,
+                },
+                jsPDF: { unit: 'mm', format: [mmW, mmH], orientation: mmH >= mmW ? 'portrait' : 'landscape' },
+                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] },
+            };
+
+            try {
+                await html2pdf().set(opt).from(element).save();
+            } catch (err) {
+                console.error(err);
+                alert('Could not create the PDF. Use Print (⌘P / Ctrl+P) and choose Save as PDF instead.');
+            } finally {
+                btn.disabled = false;
+                if (label) label.textContent = 'Download PDF';
+            }
+        }
+
+        document.getElementById('download-pdf-btn').addEventListener('click', downloadInvoicePdf);
+
+        // Dynamically size the page to fit all content on exactly one page
+        let _pageStyle = null;
+
+        window.addEventListener('beforeprint', function () {
+            const btn = document.querySelector('.download-btn');
+            if (btn) btn.style.display = 'none';
+
+            // Measure full content dimensions
+            const container = document.querySelector('.container');
+            const bodyPadH = parseFloat(getComputedStyle(document.body).paddingTop || 0)
+                           + parseFloat(getComputedStyle(document.body).paddingBottom || 0);
+            const bodyPadW = parseFloat(getComputedStyle(document.body).paddingLeft || 0)
+                           + parseFloat(getComputedStyle(document.body).paddingRight || 0);
+
+            const pageW = container.offsetWidth + bodyPadW + 80;  // 80px breathing room
+            const pageH = container.offsetHeight + bodyPadH + 80;
+
+            // Inject a @page rule sized exactly to the content
+            _pageStyle = document.createElement('style');
+            _pageStyle.textContent = `@page { size: ${pageW}px ${pageH}px; margin: 40px 50px; }`;
+            document.head.appendChild(_pageStyle);
+        });
+
+        window.addEventListener('afterprint', function () {
+            if (_pageStyle) {
+                _pageStyle.remove();
+                _pageStyle = null;
+            }
+            const btn = document.querySelector('.download-btn');
+            if (btn) btn.style.display = '';
+        });
     </script>
 </body>
 
