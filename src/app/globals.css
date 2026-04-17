@@ -43,3 +43,13 @@ body {
   @apply fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border border-neutral-200 dark:border-neutral-800 rounded-full px-6 py-3 shadow-sm;
 }
 
+/* Buy Me a Coffee floating widget: read above header + clearer silhouette on light UI */
+#bmc-wbtn {
+  z-index: 60 !important;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.2) !important;
+}
+
+.dark #bmc-wbtn {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.55) !important;
+}
+

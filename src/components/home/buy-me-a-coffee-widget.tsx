@@ -15,10 +15,10 @@ export function BuyMeACoffeeWidget() {
       data-id="sabiqsabry"
       data-description="Support me on Buy me a coffee!"
       data-message="Thank you for supporting!"
-      data-color="#FF813F"
+      data-color="#171717"
       data-position="Right"
-      data-x_margin="18"
-      data-y_margin="18"
+      data-x_margin="22"
+      data-y_margin="28"
     />
   )
 }
