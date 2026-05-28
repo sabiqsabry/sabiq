@@ -8,13 +8,14 @@ const skills = {
     "Front End": ["Flutter", "React", "React Native", "SwiftUI"],
 };
 
-const experience = [
-    { role: "Senior Web Developer", company: "Tactik AU", period: "May 2021 – Dec 2022" },
-    { role: "Web Developer", company: "Cursor", period: "Nov 2021 – Jan 2022" },
-    { role: "Web Developer", company: "Nonversal", period: "Sep 2020 – Jan 2022" },
-    { role: "Senior Web Developer", company: "the Radiant", period: "Jan 2021 – May 2021" },
-    { role: "Junior Web Developer", company: "UNIQ Solutions", period: "Aug 2020 – Oct 2020" },
-    { role: "Teaching Assistant", company: "Kent Institute", period: "May 2017 – Dec 2021" },
+const experience: { role: string; company: string; period: string; location: string }[] = [
+    { role: "Machine Learning Engineer", company: "CDAZZDEV", period: "Apr 2026 – Present", location: "Seattle, Washington, United States · Remote" },
+    { role: "Senior Web Developer", company: "Tactik AU", period: "May 2021 – Dec 2022", location: "Melbourne, Victoria · Remote" },
+    { role: "Web Developer", company: "Cursor", period: "Nov 2021 – Jan 2022", location: "Colombo, Western Province, Sri Lanka" },
+    { role: "Web Developer", company: "Nonversal", period: "Sep 2020 – Jan 2022", location: "Colombo, Western Province, Sri Lanka" },
+    { role: "Senior Web Developer", company: "the Radiant", period: "Jan 2021 – May 2021", location: "Colombo, Western Province, Sri Lanka" },
+    { role: "Junior Web Developer", company: "UNIQ Solutions", period: "Aug 2020 – Oct 2020", location: "Colombo, Western Province, Sri Lanka" },
+    { role: "Teaching Assistant", company: "Kent Institute", period: "May 2017 – Dec 2021", location: "Colombo, Western Province, Sri Lanka" },
 ];
 
 const education = [
@@ -75,6 +76,7 @@ export default function AboutPage() {
                             <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-50">{item.role}</h3>
                             <p className="text-neutral-800 dark:text-neutral-200">{item.company}</p>
                             <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-1">{item.period}</p>
+                            <p className="text-sm text-neutral-500 dark:text-neutral-400">{item.location}</p>
                         </div>
                     ))}
                 </div>

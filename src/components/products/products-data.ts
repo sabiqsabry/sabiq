@@ -302,7 +302,7 @@ sabiqsabry48@gmail.com / novusian.sabiq@gmail.com`,
         downloads: [
             {
                 platform: "mac",
-                url: "/products/blankr/Blankr.dmg",
+                url: "/products/blankr/Blankr-1.0.0-macOS.dmg",
                 label: "Download for Mac",
             },
         ],

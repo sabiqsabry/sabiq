@@ -22,6 +22,9 @@
 
 # misc
 .DS_Store
+
+# local archive (moved legacy/unused files — not deployed)
+/Other/
 *.pem
 
 # debug
