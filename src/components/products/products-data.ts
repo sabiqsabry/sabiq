@@ -1,3 +1,5 @@
+import { CONTACT } from "@/lib/contact";
+
 export type Platform = "mac" | "windows" | "ios" | "android";
 
 export interface DownloadLink {
@@ -58,8 +60,8 @@ export const products: Product[] = [
                 comingSoon: true,
             },
         ],
-        developer: "Sabiq Sabry — novusian",
-        privacyPolicy: `## Privacy Policy — Pash
+        developer: "Sabiq Sabry - novusian",
+        privacyPolicy: `## Privacy Policy - Pash
 Last updated: March 15, 2026
 
 ### 1. Overview
@@ -106,7 +108,7 @@ If you choose to sign in with Google, authentication is handled via Google's OAu
 Your data is retained for as long as your account is active. If you wish to delete your account and associated data, contact us at the email below and we will process your request.
 
 ### 6. Data Security
-All data is transmitted over HTTPS. Database access is protected by row-level security (RLS) policies — users can only read and write data they are authorized to access. Authentication tokens are managed by Supabase Auth.
+All data is transmitted over HTTPS. Database access is protected by row-level security (RLS) policies - users can only read and write data they are authorized to access. Authentication tokens are managed by Supabase Auth.
 
 ### 7. Children's Privacy
 Pash is not directed at children under 13. We do not knowingly collect personal data from children under 13. If you believe a child has provided us with personal data, contact us and we will delete it.
@@ -131,7 +133,7 @@ If you have any questions or concerns about this Privacy Policy, please reach ou
         name: "Paisa Convert",
         tagline: "Currency Converter",
         description:
-            "Track, convert, and manage multiple world currencies in one clean, fast app. Whether you're traveling abroad, managing international finances, or just curious about exchange rates, Paisa Convert gives you live rates and a smooth experience right in your pocket.\n\nBuilt with Material Design 3, Paisa Convert is fast, intuitive, and easy on the eyes — whether you prefer light or dark mode. No ads. No accounts. No unnecessary permissions.",
+            "Track, convert, and manage multiple world currencies in one clean, fast app. Whether you're traveling abroad, managing international finances, or just curious about exchange rates, Paisa Convert gives you live rates and a smooth experience right in your pocket.\n\nBuilt with Material Design 3, Paisa Convert is fast, intuitive, and easy on the eyes - whether you prefer light or dark mode. No ads. No accounts. No unnecessary permissions.",
         icon: "/products/paisa-convert/icon.png",
         features: [
             "Real-time exchange rates (updated every 10 mins)",
@@ -157,7 +159,7 @@ If you have any questions or concerns about this Privacy Policy, please reach ou
                 external: true,
             },
         ],
-        developer: "Sabiq Sabry — novusian",
+        developer: "Sabiq Sabry - novusian",
         privacyPolicy: `## Privacy Policy for Paisa Convert
 Effective Date: February 26, 2026
 Last Updated: February 26, 2026
@@ -204,7 +206,7 @@ If you have any questions or concerns about this Privacy Policy, please reach ou
         name: "Sky Said So",
         tagline: "Just weather. The way it should be.",
         description:
-            "Sky Said So is a clean, minimal weather app that tells you exactly what the sky has planned — no clutter, no noise, no unnecessary distractions.\n\nBold, typography-driven design and a clean layout make it easy to read. Get accurate, up-to-date weather based on your location including current temperature, feels-like, humidity, wind speed, and detailed forecasts.",
+            "Sky Said So is a clean, minimal weather app that tells you exactly what the sky has planned - no clutter, no noise, no unnecessary distractions.\n\nBold, typography-driven design and a clean layout make it easy to read. Get accurate, up-to-date weather based on your location including current temperature, feels-like, humidity, wind speed, and detailed forecasts.",
         icon: "/products/sky-said-so/icon.png",
         features: [
             "Bold, typography-driven design",
@@ -230,7 +232,7 @@ If you have any questions or concerns about this Privacy Policy, please reach ou
                 external: true,
             },
         ],
-        developer: "Sabiq Sabry — novusian",
+        developer: "Sabiq Sabry - novusian",
         privacyPolicy: `## Privacy Policy for Sky Said So
 
 Effective Date: February 20, 2026
@@ -280,18 +282,19 @@ We may update this Privacy Policy in the future. Any changes will be reflected o
 If you have questions about this Privacy Policy, please contact:
 
 Sabiq Sabry - novusian
-sabiqsabry48@gmail.com / novusian.sabiq@gmail.com`,
+${CONTACT.email} / ${CONTACT.emailSecondary}
+${CONTACT.phone}`,
     },
     {
         id: "blankr",
         name: "Blankr.",
         tagline: "Write. Close. Done.",
         description:
-            "Blankr. is a minimal, zero-distraction note-taking app for macOS built around a single idea — open it and start writing immediately.\n\nNo dashboards. No accounts. No sync. No save button. No onboarding. No noise. Just a blank page and your words.\n\nThe moment you launch Blankr. you are greeted with nothing but a clean, empty writing surface with your cursor already waiting. When you are done, you simply close the app. Everything you wrote is automatically saved as a plain .txt file directly to your Desktop — timestamped, readable, and yours. No hidden folders. No proprietary formats. No lock-in.\n\nA slim formatting panel sits quietly on the side with only the essentials — bold, italic, underline, font size, and alignment. Nothing more. The writing canvas is always the focus.\n\nBlankr. does not try to organize your life. It does not try to be smart. It just gets out of your way completely.",
+            "Blankr. is a minimal, zero-distraction note-taking app for macOS built around a single idea - open it and start writing immediately.\n\nNo dashboards. No accounts. No sync. No save button. No onboarding. No noise. Just a blank page and your words.\n\nThe moment you launch Blankr. you are greeted with nothing but a clean, empty writing surface with your cursor already waiting. When you are done, you simply close the app. Everything you wrote is automatically saved as a plain .txt file directly to your Desktop - timestamped, readable, and yours. No hidden folders. No proprietary formats. No lock-in.\n\nA slim formatting panel sits quietly on the side with only the essentials - bold, italic, underline, font size, and alignment. Nothing more. The writing canvas is always the focus.\n\nBlankr. does not try to organize your life. It does not try to be smart. It just gets out of your way completely.",
         icon: "/products/blankr/icon.png",
         features: [
             "Opens instantly to a blank writing canvas every time",
-            "Auto-saves to your Desktop as a .txt file on close — no save button ever",
+            "Auto-saves to your Desktop as a .txt file on close - no save button ever",
             "Timestamp-based file naming for effortless organization",
             "Minimal formatting panel with only the essentials",
             "Opens existing .txt files when double-clicked from Finder",
@@ -306,7 +309,7 @@ sabiqsabry48@gmail.com / novusian.sabiq@gmail.com`,
                 label: "Download for Mac",
             },
         ],
-        developer: "Sabiq Sabry — novusian",
+        developer: "Sabiq Sabry - novusian",
         comingSoon: "Windows version coming soon.",
     },
 ];

@@ -5,8 +5,10 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
-import { Mail, MapPin, Github, Linkedin, Twitter } from "lucide-react"
+import { Mail, MapPin, Phone, Github, Linkedin, Twitter } from "lucide-react"
 import { CtaSection } from "@/components/cta-section"
+import { ContactPhoneLink } from "@/components/contact-phone-link"
+import { CONTACT } from "@/lib/contact"
 import Link from "next/link"
 
 export default function ContactPage() {
@@ -74,11 +76,21 @@ export default function ContactPage() {
                         <div>
                             <p className="font-semibold text-lg mb-1">Email</p>
                             <a
-                                href="mailto:sabiqsabry48@gmail.com"
+                                href={`mailto:${CONTACT.email}`}
                                 className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-50 transition-colors"
                             >
-                                sabiqsabry48@gmail.com
+                                {CONTACT.email}
                             </a>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 bg-neutral-100 dark:bg-neutral-800 rounded-full flex items-center justify-center shrink-0">
+                            <Phone className="w-6 h-6 text-neutral-900 dark:text-white" />
+                        </div>
+                        <div>
+                            <p className="font-semibold text-lg mb-1">Phone</p>
+                            <ContactPhoneLink className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-50 transition-colors" />
                         </div>
                     </div>
 

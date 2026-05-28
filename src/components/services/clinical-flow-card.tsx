@@ -1,12 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Lock, ExternalLink, CheckCircle2, Copy, Check } from "lucide-react";
+import { ExternalLink, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 
 export function ClinicalFlowCard() {
-    const [invoiceLinkCopied, setInvoiceLinkCopied] = useState(false);
     return (
         <div className="w-full bg-white dark:bg-neutral-950 rounded-3xl overflow-hidden relative">
             {/* Header Section */}
@@ -65,7 +62,7 @@ export function ClinicalFlowCard() {
                         
                         <h3 className="text-xl md:text-2xl font-semibold text-neutral-900 dark:text-white pt-8">The Solution</h3>
                         <p className="text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
-                            A full-stack clinical workflow management system that digitizes the entire patient journey — from initial intake to discharge.
+                            A full-stack clinical workflow management system that digitizes the entire patient journey - from initial intake to discharge.
                         </p>
                         <ul className="space-y-3 pt-2">
                             <li className="flex items-start gap-3 text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
@@ -127,34 +124,15 @@ export function ClinicalFlowCard() {
                             </ul>
                         </div>
                         
-                        <div className="pt-10 border-t border-neutral-200 dark:border-neutral-800 space-y-4">
+                        <div className="pt-10 border-t border-neutral-200 dark:border-neutral-800">
                             <h4 className="text-xs uppercase tracking-widest text-neutral-500 font-semibold mb-6">Execution Details</h4>
                             <button 
+                                type="button"
                                 onClick={() => window.open("https://clinicalflow.netlify.app/", "_blank")}
                                 className="w-full flex items-center justify-center gap-2 bg-neutral-900 hover:bg-black dark:bg-white dark:hover:bg-neutral-200 text-white dark:text-black text-sm font-medium py-4 px-6 rounded-2xl transition-all shadow-sm active:scale-95"
                             >
                                 <ExternalLink size={16} /> View App
                             </button>
-                            <div className="flex gap-2">
-                                <button 
-                                    onClick={() => window.open("/services/clinical-flow/invoice", "_blank")}
-                                    className="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-neutral-50 dark:bg-neutral-900 dark:hover:bg-neutral-800 text-neutral-900 dark:text-white border border-neutral-200 dark:border-neutral-800 text-sm font-medium py-4 px-4 rounded-2xl transition-all shadow-sm active:scale-95 whitespace-nowrap"
-                                >
-                                    <Lock size={16} /> View Invoice
-                                </button>
-                                <button 
-                                    onClick={() => {
-                                        const url = window.location.origin + "/services/clinical-flow/invoice";
-                                        navigator.clipboard.writeText(url);
-                                        setInvoiceLinkCopied(true);
-                                        setTimeout(() => setInvoiceLinkCopied(false), 2000);
-                                    }}
-                                    className="flex-shrink-0 flex items-center justify-center bg-white hover:bg-neutral-50 dark:bg-neutral-900 dark:hover:bg-neutral-800 text-neutral-500 hover:text-neutral-900 dark:hover:text-white border border-neutral-200 dark:border-neutral-800 p-4 rounded-2xl transition-all shadow-sm active:scale-95"
-                                    title="Copy Link"
-                                >
-                                    {invoiceLinkCopied ? <Check size={16} /> : <Copy size={16} />}
-                                </button>
-                            </div>
                         </div>
                     </div>
                 </div>

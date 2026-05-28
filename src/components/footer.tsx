@@ -1,5 +1,7 @@
 import Link from "next/link"
 import { ModeToggle } from "@/components/mode-toggle"
+import { ContactPhoneLink } from "@/components/contact-phone-link"
+import { CONTACT } from "@/lib/contact"
 import { Github, Linkedin, Twitter } from "lucide-react"
 
 export function Footer() {
@@ -13,6 +15,17 @@ export function Footer() {
                     </Link>
                     <p className="text-sm text-neutral-500 dark:text-neutral-400">
                         © Sabiq Sabry 2025,<br />All rights reserved.
+                    </p>
+                    <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                        <a
+                            href={`mailto:${CONTACT.email}`}
+                            className="hover:text-neutral-900 dark:hover:text-neutral-50 transition-colors"
+                        >
+                            {CONTACT.email}
+                        </a>
+                    </p>
+                    <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                        <ContactPhoneLink className="hover:text-neutral-900 dark:hover:text-neutral-50 transition-colors" />
                     </p>
                     <div className="flex gap-4">
                         <Link href="https://x.com/sabiqsabryy" className="text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-50">

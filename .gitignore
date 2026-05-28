@@ -23,7 +23,7 @@
 # misc
 .DS_Store
 
-# local archive (moved legacy/unused files — not deployed)
+# local archive (moved legacy/unused files - not deployed)
 /Other/
 *.pem
 

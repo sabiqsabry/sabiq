@@ -52,7 +52,7 @@ export function Hero() {
                         transition={{ delay: 0.3 }}
                         className="text-lg md:text-xl text-neutral-500 dark:text-neutral-400"
                     >
-                        I build AI systems that think — from data to intelligence.
+                        I build AI systems that think - from data to intelligence.
                     </motion.p>
                 </div>
 

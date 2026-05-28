@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { LighthouseCard } from "@/components/services/lighthouse-card";
 import { ClinicalFlowCard } from "@/components/services/clinical-flow-card";
+import { LamissisBoothCard } from "@/components/services/lamissis-booth-card";
 
 const projects = [
     {
@@ -23,10 +24,22 @@ const projects = [
         description: "A full-stack workflow management system digitizing the entire patient journey for CSEM.",
         logo: "/projects/clinical-flow/logo.png",
         image: "/projects/clinical-flow/logo.png",
-    }
+    },
+    {
+        id: "lamissis-booth",
+        title: "Lamissi's Booth",
+        category: "Kiosk App",
+        description: "Self-service Korean-style photo booth kiosk on Raspberry Pi - capture, compositing, and dye-sub print with zero staff.",
+        logo: "/projects/lamissis-booth/logo.png",
+        image: "/projects/lamissis-booth/logo.png",
+    },
 ];
 
-export function ClientProjectsGrid() {
+type ClientProjectsGridProps = {
+    showHeader?: boolean;
+};
+
+export function ClientProjectsGrid({ showHeader = true }: ClientProjectsGridProps) {
     const [selectedProject, setSelectedProject] = useState<string | null>(null);
 
     // Prevent body scroll when modal is open
@@ -48,15 +61,8 @@ export function ClientProjectsGrid() {
         return () => window.removeEventListener("keydown", handleKeyDown);
     }, []);
 
-    return (
-        <section className="py-20">
-            <div className="max-w-7xl mx-auto px-6">
-                <div className="mb-12">
-                     <h3 className="text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50 mb-2">Featured Client Work</h3>
-                     <p className="text-neutral-500 dark:text-neutral-400">Deep dives into recent commercial projects.</p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    const grid = (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
                     {projects.map((project) => (
                         <div 
                             key={project.id}
@@ -84,7 +90,23 @@ export function ClientProjectsGrid() {
                         </div>
                     ))}
                 </div>
-            </div>
+    );
+
+    return (
+        <>
+            {showHeader ? (
+                <section className="py-20">
+                    <div className="max-w-7xl mx-auto px-6">
+                        <div className="mb-12">
+                            <h3 className="text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50 mb-2">Featured Client Work</h3>
+                            <p className="text-neutral-500 dark:text-neutral-400">Deep dives into recent commercial projects.</p>
+                        </div>
+                        {grid}
+                    </div>
+                </section>
+            ) : (
+                grid
+            )}
 
             {/* Modal Overlay */}
             <AnimatePresence>
@@ -114,10 +136,11 @@ export function ClientProjectsGrid() {
                             {/* Render the specific project card detail based on ID */}
                             {selectedProject === "lighthouse" && <LighthouseCard />}
                             {selectedProject === "clinical-flow" && <ClinicalFlowCard />}
+                            {selectedProject === "lamissis-booth" && <LamissisBoothCard />}
                         </motion.div>
                     </div>
                 )}
             </AnimatePresence>
-        </section>
+        </>
     );
 }

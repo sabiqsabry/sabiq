@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Products | Sabiq Sabry",
-    description: "Apps and tools built by Sabiq Sabry — available on macOS, Windows, iOS, and Android.",
+    description: "Apps and tools built by Sabiq Sabry - available on macOS, Windows, iOS, and Android.",
 };
 
 export default function ProductsPage() {
@@ -15,7 +15,7 @@ export default function ProductsPage() {
                     Apps built for real use
                 </h1>
                 <p className="text-neutral-500 dark:text-neutral-400 text-lg">
-                    A collection of native apps and tools I&apos;ve designed and shipped — minimal, purposeful, and built to last.
+                    A collection of native apps and tools I&apos;ve designed and shipped - minimal, purposeful, and built to last.
                 </p>
             </div>
 

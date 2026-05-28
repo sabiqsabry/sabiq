@@ -96,6 +96,7 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 ## 📧 Contact
 
 - **Email**: sabiqsabry48@gmail.com
+- **Phone**: +94 70 575 0073
 - **LinkedIn**: sabiqsabry
 - **GitHub**: sabiqsabry
 

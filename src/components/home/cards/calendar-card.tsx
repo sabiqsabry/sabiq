@@ -12,7 +12,7 @@ export function CalendarCard() {
             target="_blank"
             rel="noopener noreferrer"
             className="block h-full"
-            aria-label="Buy me a coffee — opens Buy Me a Coffee in a new tab"
+            aria-label="Buy me a coffee - opens Buy Me a Coffee in a new tab"
         >
             <Card className="h-full flex flex-col justify-between hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors">
                 <CardHeader className="pb-6">
