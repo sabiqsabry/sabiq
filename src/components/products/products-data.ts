@@ -335,7 +335,7 @@ ${CONTACT.phone}`,
                 platform: "web",
                 url: "/tools/mermaid-on-steroids",
                 label: "Open Project",
-                internal: true,
+                external: true,
             },
             {
                 platform: "web",
