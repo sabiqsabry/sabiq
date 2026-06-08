@@ -117,6 +117,19 @@ export function ProductCard({ product }: ProductCardProps) {
                                 )
                             }
 
+                            if (dl.internal) {
+                                return (
+                                    <Link
+                                        key={key}
+                                        href={dl.url}
+                                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-neutral-900 dark:bg-neutral-50 text-white dark:text-neutral-900 text-sm font-medium hover:opacity-90 transition-opacity"
+                                    >
+                                        {dl.label}
+                                        <ExternalLink className="h-3.5 w-3.5 opacity-70" />
+                                    </Link>
+                                )
+                            }
+
                             return dl.external ? (
                                 <Link
                                     key={key}

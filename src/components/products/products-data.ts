@@ -6,8 +6,10 @@ export interface DownloadLink {
     platform: Platform;
     url: string;
     label: string;
-    /** If true, this is an external store link (App Store / Play Store) */
+    /** If true, this is an external store link (App Store / Play Store) — opens in new tab */
     external?: boolean;
+    /** If true, navigates within the site (same tab, no download) — for hosted tools */
+    internal?: boolean;
     /** If true, the button is rendered as "Coming Soon" with no link */
     comingSoon?: boolean;
 }
@@ -331,9 +333,9 @@ ${CONTACT.phone}`,
         downloads: [
             {
                 platform: "web",
-                url: "https://github.com/sabiqsabry/Mermaid-On-Steroids",
+                url: "/tools/mermaid-on-steroids",
                 label: "Open Project",
-                external: true,
+                internal: true,
             },
             {
                 platform: "web",
