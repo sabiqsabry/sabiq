@@ -1,6 +1,6 @@
 import { CONTACT } from "@/lib/contact";
 
-export type Platform = "mac" | "windows" | "ios" | "android";
+export type Platform = "mac" | "windows" | "ios" | "android" | "web" | "devtool" | "diagramming";
 
 export interface DownloadLink {
     platform: Platform;
@@ -311,5 +311,37 @@ ${CONTACT.phone}`,
         ],
         developer: "Sabiq Sabry - novusian",
         comingSoon: "Windows version coming soon.",
+    },
+    {
+        id: "mermaid-on-steroids",
+        name: "Mermaid on Steroids",
+        tagline: "ELK-powered Mermaid diagram editor and export tool",
+        description:
+            "Mermaid on Steroids helps turn Mermaid code into cleaner, more readable diagrams using ELK layout, with high-quality SVG, PNG, and PDF exports plus an evolving bridge to Excalidraw for editable workflows.\n\nTurn Mermaid code into cleaner ELK-powered diagrams with polished exports and Excalidraw handoff support.",
+        icon: "/products/mermaid-on-steroids/icon.png",
+        features: [
+            "ELK-powered Mermaid rendering for cleaner graph layouts",
+            "High-quality single-page SVG, PNG, and PDF exports",
+            "Live preview with zoom, fullscreen, and inline label editing",
+            "Faithful Excalidraw handoff for preserving rendered diagrams",
+            "Experimental editable ELK export for Excalidraw workflows",
+            "Built for large architecture, systems, and flow diagrams",
+        ],
+        platforms: ["web", "devtool", "diagramming"],
+        downloads: [
+            {
+                platform: "web",
+                url: "https://github.com/sabiqsabry/Mermaid-On-Steroids",
+                label: "Open Project",
+                external: true,
+            },
+            {
+                platform: "web",
+                url: "https://github.com/sabiqsabry/Mermaid-On-Steroids",
+                label: "View Source",
+                external: true,
+            },
+        ],
+        developer: "Sabiq Sabry",
     },
 ];

@@ -23,6 +23,18 @@ const platformConfig: Record<Platform, { label: string; color: string }> = {
         label: "Android",
         color: "bg-green-600 text-white",
     },
+    web: {
+        label: "Web",
+        color: "bg-violet-600 text-white",
+    },
+    devtool: {
+        label: "Developer Tool",
+        color: "bg-amber-500 text-white",
+    },
+    diagramming: {
+        label: "Diagramming",
+        color: "bg-teal-600 text-white",
+    },
 }
 
 interface ProductCardProps {
@@ -87,15 +99,16 @@ export function ProductCard({ product }: ProductCardProps) {
 
                     {/* Download buttons */}
                     <div className="flex flex-wrap gap-3 pt-1">
-                        {product.downloads.map((dl) => {
+                        {product.downloads.map((dl, idx) => {
                             const cfg = platformConfig[dl.platform]
                             const isMobile = dl.platform === "ios" || dl.platform === "android"
                             const Icon = isMobile ? Smartphone : Monitor
+                            const key = `${dl.platform}-${idx}`
 
                             if (dl.comingSoon) {
                                 return (
                                     <span
-                                        key={dl.platform}
+                                        key={key}
                                         className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-neutral-200 dark:border-neutral-700 text-neutral-500 dark:text-neutral-400 text-sm font-medium cursor-default"
                                     >
                                         <Icon className="h-3.5 w-3.5" />
@@ -106,7 +119,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
                             return dl.external ? (
                                 <Link
-                                    key={dl.platform}
+                                    key={key}
                                     href={dl.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -117,7 +130,7 @@ export function ProductCard({ product }: ProductCardProps) {
                                 </Link>
                             ) : (
                                 <a
-                                    key={dl.platform}
+                                    key={key}
                                     href={dl.url}
                                     download
                                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-neutral-900 dark:bg-neutral-50 text-white dark:text-neutral-900 text-sm font-medium hover:opacity-90 transition-opacity"
