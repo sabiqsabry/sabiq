@@ -31,104 +31,63 @@ export interface Product {
 
 export const products: Product[] = [
     {
-        id: "pash",
-        name: "Pash",
-        tagline: "Personal Finance & Expense Splitting",
+        id: "blankr",
+        name: "Blankr.",
+        tagline: "Write. Close. Done.",
         description:
-            "Pash is a smart bill-splitting and personal finance application. Create expense splits, track balances, manage group expenses, and handle payments seamlessly. Connect with friends and let Pash do the math for you.\n\nBuilt for speed and simplicity. Sign in via Google or email, and start splitting expenses securely with encrypted cloud storage.",
-        icon: "/products/pash/icon.png",
+            "Blankr. is a minimal, zero-distraction note-taking app for macOS built around a single idea - open it and start writing immediately.\n\nNo dashboards. No accounts. No sync. No save button. No onboarding. No noise. Just a blank page and your words.\n\nThe moment you launch Blankr. you are greeted with nothing but a clean, empty writing surface with your cursor already waiting. When you are done, you simply close the app. Everything you wrote is automatically saved as a plain .txt file directly to your Desktop - timestamped, readable, and yours. No hidden folders. No proprietary formats. No lock-in.\n\nA slim formatting panel sits quietly on the side with only the essentials - bold, italic, underline, font size, and alignment. Nothing more. The writing canvas is always the focus.\n\nBlankr. does not try to organize your life. It does not try to be smart. It just gets out of your way completely.",
+        icon: "/products/blankr/icon.png",
         features: [
-            "Smart expense splitting",
-            "Group expense & balance management",
-            "Payment and settlement tracking",
-            "Google & Email Authentication",
-            "Secure cloud storage with Supabase",
-            "No ads. Data is encrypted and private.",
+            "Opens instantly to a blank writing canvas every time",
+            "Auto-saves to your Desktop as a .txt file on close - no save button ever",
+            "Timestamp-based file naming for effortless organization",
+            "Minimal formatting panel with only the essentials",
+            "Opens existing .txt files when double-clicked from Finder",
+            "Fully offline, fully private, zero telemetry",
+            "Native macOS app built with Swift and SwiftUI",
         ],
-        platforms: ["ios", "android"],
+        platforms: ["mac"],
         downloads: [
             {
-                platform: "ios",
-                url: "#",
-                label: "App Store",
-                external: true,
-                comingSoon: true,
-            },
-            {
-                platform: "android",
-                url: "#",
-                label: "Play Store",
-                external: true,
-                comingSoon: true,
+                platform: "mac",
+                url: "/products/blankr/Blankr-1.0.0-macOS.dmg",
+                label: "Download for Mac",
             },
         ],
         developer: "Sabiq Sabry - novusian",
-        privacyPolicy: `## Privacy Policy - Pash
-Last updated: March 15, 2026
-
-### 1. Overview
-Pash ("the App") is a bill-splitting application developed by Sabiq Sabry. This policy explains what personal data the App collects, how it is used, and your rights regarding that data.
-
-### 2. Data We Collect
-
-**Account Information**
-* Email address (used for authentication)
-* Display name
-* Username (chosen by you during setup)
-* Profile photo (only if you sign in with Google, pulled from your Google account)
-
-**Usage Data**
-* Expense splits you create: description, total amount, currency, split type
-* Participants in your splits (by name or linked username)
-* Payment and settlement records you record
-* Groups you create or belong to
-* Friend connections you establish within the app
-* In-app notifications sent to your account
-
-**Authentication Data**
-* If you sign in with Google, we receive your name, email, and profile photo from Google via OAuth 2.0. We do not store your Google password.
-* If you sign in with email/password, your password is hashed and managed by Supabase Auth. We never have access to your plain-text password.
-
-**Device / Technical Data**
-We do not collect device identifiers, location data, advertising IDs, or usage analytics beyond what is described above.
-
-### 3. How We Use Your Data
-* To provide core app functionality (creating splits, tracking balances, notifying participants)
-* To identify you to other users you choose to connect with
-* To send you in-app notifications about splits and payments involving you
-
-We do not sell your data. We do not use your data for advertising. We do not share your data with third parties except as described in Section 4.
-
-### 4. Third-Party Services
-**Supabase**
-All data is stored in a Supabase-managed PostgreSQL database hosted on AWS infrastructure. Supabase is used for authentication, database storage, and row-level security enforcement. Supabase's privacy policy applies to infrastructure-level data handling: https://supabase.com/privacy
-
-**Google OAuth**
-If you choose to sign in with Google, authentication is handled via Google's OAuth 2.0 service. Google's privacy policy applies to that sign-in flow: https://policies.google.com/privacy
-
-### 5. Data Retention
-Your data is retained for as long as your account is active. If you wish to delete your account and associated data, contact us at the email below and we will process your request.
-
-### 6. Data Security
-All data is transmitted over HTTPS. Database access is protected by row-level security (RLS) policies - users can only read and write data they are authorized to access. Authentication tokens are managed by Supabase Auth.
-
-### 7. Children's Privacy
-Pash is not directed at children under 13. We do not knowingly collect personal data from children under 13. If you believe a child has provided us with personal data, contact us and we will delete it.
-
-### 8. Your Rights
-Depending on your jurisdiction, you may have the right to:
-* Access the personal data we hold about you
-* Request correction of inaccurate data
-* Request deletion of your account and data
-* Withdraw consent at any time
-
-To exercise any of these rights, contact us at the email below.
-
-### 9. Changes to This Policy
-We may update this policy from time to time. The "Last updated" date at the top will reflect any changes. Continued use of the App after changes constitutes acceptance of the updated policy.
-
-### 10. Contact
-If you have any questions or concerns about this Privacy Policy, please reach out via the contact information listed on the developer's portfolio.`,
+        comingSoon: "Windows version coming soon.",
+    },
+    {
+        id: "mermaid-on-steroids",
+        name: "Mermaid on Steroids",
+        tagline: "ELK-powered Mermaid diagram editor and export tool",
+        description:
+            "Mermaid on Steroids helps turn Mermaid code into cleaner, more readable diagrams using ELK layout, with high-quality SVG, PNG, and PDF exports plus an evolving bridge to Excalidraw for editable workflows.\n\nTurn Mermaid code into cleaner ELK-powered diagrams with polished exports and Excalidraw handoff support.",
+        icon: "/products/mermaid-on-steroids/icon.png",
+        features: [
+            "ELK-powered Mermaid rendering for cleaner graph layouts",
+            "High-quality single-page SVG, PNG, and PDF exports",
+            "Live preview with zoom, fullscreen, and inline label editing",
+            "Faithful Excalidraw handoff for preserving rendered diagrams",
+            "Experimental editable ELK export for Excalidraw workflows",
+            "Built for large architecture, systems, and flow diagrams",
+        ],
+        platforms: ["web", "devtool", "diagramming"],
+        downloads: [
+            {
+                platform: "web",
+                url: "/tools/mermaid-on-steroids",
+                label: "Open Project",
+                external: true,
+            },
+            {
+                platform: "web",
+                url: "https://github.com/sabiqsabry/Mermaid-On-Steroids",
+                label: "View Source",
+                external: true,
+            },
+        ],
+        developer: "Sabiq Sabry",
     },
     {
         id: "paisa-convert",
@@ -286,64 +245,5 @@ If you have questions about this Privacy Policy, please contact:
 Sabiq Sabry - novusian
 ${CONTACT.email} / ${CONTACT.emailSecondary}
 ${CONTACT.phone}`,
-    },
-    {
-        id: "blankr",
-        name: "Blankr.",
-        tagline: "Write. Close. Done.",
-        description:
-            "Blankr. is a minimal, zero-distraction note-taking app for macOS built around a single idea - open it and start writing immediately.\n\nNo dashboards. No accounts. No sync. No save button. No onboarding. No noise. Just a blank page and your words.\n\nThe moment you launch Blankr. you are greeted with nothing but a clean, empty writing surface with your cursor already waiting. When you are done, you simply close the app. Everything you wrote is automatically saved as a plain .txt file directly to your Desktop - timestamped, readable, and yours. No hidden folders. No proprietary formats. No lock-in.\n\nA slim formatting panel sits quietly on the side with only the essentials - bold, italic, underline, font size, and alignment. Nothing more. The writing canvas is always the focus.\n\nBlankr. does not try to organize your life. It does not try to be smart. It just gets out of your way completely.",
-        icon: "/products/blankr/icon.png",
-        features: [
-            "Opens instantly to a blank writing canvas every time",
-            "Auto-saves to your Desktop as a .txt file on close - no save button ever",
-            "Timestamp-based file naming for effortless organization",
-            "Minimal formatting panel with only the essentials",
-            "Opens existing .txt files when double-clicked from Finder",
-            "Fully offline, fully private, zero telemetry",
-            "Native macOS app built with Swift and SwiftUI",
-        ],
-        platforms: ["mac"],
-        downloads: [
-            {
-                platform: "mac",
-                url: "/products/blankr/Blankr-1.0.0-macOS.dmg",
-                label: "Download for Mac",
-            },
-        ],
-        developer: "Sabiq Sabry - novusian",
-        comingSoon: "Windows version coming soon.",
-    },
-    {
-        id: "mermaid-on-steroids",
-        name: "Mermaid on Steroids",
-        tagline: "ELK-powered Mermaid diagram editor and export tool",
-        description:
-            "Mermaid on Steroids helps turn Mermaid code into cleaner, more readable diagrams using ELK layout, with high-quality SVG, PNG, and PDF exports plus an evolving bridge to Excalidraw for editable workflows.\n\nTurn Mermaid code into cleaner ELK-powered diagrams with polished exports and Excalidraw handoff support.",
-        icon: "/products/mermaid-on-steroids/icon.png",
-        features: [
-            "ELK-powered Mermaid rendering for cleaner graph layouts",
-            "High-quality single-page SVG, PNG, and PDF exports",
-            "Live preview with zoom, fullscreen, and inline label editing",
-            "Faithful Excalidraw handoff for preserving rendered diagrams",
-            "Experimental editable ELK export for Excalidraw workflows",
-            "Built for large architecture, systems, and flow diagrams",
-        ],
-        platforms: ["web", "devtool", "diagramming"],
-        downloads: [
-            {
-                platform: "web",
-                url: "/tools/mermaid-on-steroids",
-                label: "Open Project",
-                external: true,
-            },
-            {
-                platform: "web",
-                url: "https://github.com/sabiqsabry/Mermaid-On-Steroids",
-                label: "View Source",
-                external: true,
-            },
-        ],
-        developer: "Sabiq Sabry",
     },
 ];
