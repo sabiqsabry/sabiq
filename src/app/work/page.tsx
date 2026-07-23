@@ -280,7 +280,7 @@ export default function WorkPage() {
                             Client work
                         </h2>
                         <p className="text-neutral-500 dark:text-neutral-400 text-lg leading-relaxed max-w-2xl">
-                            Deep dives into commercial projects - shipped with premium UI and full-stack delivery.
+                            Deep dives into commercial projects - premium UI and full-stack delivery.
                         </p>
                         <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-2xl border-l-2 border-neutral-300 dark:border-neutral-700 pl-4">
                             I&apos;ve delivered much more client work than what&apos;s shown here. These case studies are projects where the client has agreed to let me showcase them on my portfolio.
