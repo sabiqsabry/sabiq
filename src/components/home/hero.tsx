@@ -31,7 +31,7 @@ export function Hero() {
                         alt="Sabiq Sabry"
                         fill
                         className="object-cover"
-                        style={{ objectPosition: '70% 30%' }}
+                        style={{ objectPosition: '50% 30%' }}
                         priority
                         sizes="(max-width: 768px) 128px, 160px"
                     />
