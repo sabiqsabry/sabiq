@@ -1,5 +1,3 @@
-import { CONTACT } from "@/lib/contact";
-
 export type Platform = "mac" | "windows" | "ios" | "android" | "web" | "devtool" | "diagramming";
 
 export interface DownloadLink {
@@ -30,6 +28,29 @@ export interface Product {
 }
 
 export const products: Product[] = [
+    {
+        id: "everything",
+        name: "everything",
+        tagline: "Paste a link. Get the file.",
+        description:
+            "everything is a single-window download hub for macOS. Paste a link - a video URL, a magnet link, a .torrent file, or a plain HTTP/FTP address - and it works out what it is and fetches it. No browser extensions, no ad-riddled download sites, no separate app for every kind of file.\n\nTwo engines sit behind the one link field: a self-built fork of yt-dlp handles the ~1,800 sites it can extract from, and aria2 handles torrents, magnets, and direct transfers. Auto-detection picks the right one and tells you what it decided before anything starts downloading, with a Type dropdown to overrule it. Quality and format controls appear only when the link actually resolves to a video, because a control that quietly does nothing is worse than no control.\n\nEvery engine ships inside the app. yt-dlp, FFmpeg, QuickJS, and aria2 are all bundled, so it runs on a fresh Mac with nothing installed and nothing configured. aria2 is started as a private RPC server on a random loopback port with a random secret and dies with the app, so no daemon outlives it.\n\nBuilt with Flutter for Apple Silicon, macOS 12 and later. A Windows target is scaffolded and coming.",
+        icon: "/products/everything/icon.png",
+        features: [
+            "One link field for videos, torrents, magnets, and direct HTTP/FTP",
+            "Auto-detects the link type and shows its guess before downloading",
+            "Type dropdown to overrule the guess when it gets it wrong",
+            "Self-built yt-dlp fork covering the ~1,800 sites it can extract from",
+            "aria2 for torrents and magnets, with live seeder and peer counts",
+            "Every engine bundled - nothing to install, nothing to configure",
+            "Live log pane with per-download progress, speed, and ETA",
+            "Quality and format controls that appear only for video links",
+        ],
+        platforms: ["mac"],
+        downloads: [],
+        developer: "Sabiq Sabry - novusian",
+        badge: "In Development",
+        comingSoon: "macOS build coming soon - Windows to follow",
+    },
     {
         id: "blankr",
         name: "Blankr.",
@@ -88,162 +109,5 @@ export const products: Product[] = [
             },
         ],
         developer: "Sabiq Sabry",
-    },
-    {
-        id: "paisa-convert",
-        name: "Paisa Convert",
-        tagline: "Currency Converter",
-        description:
-            "Track, convert, and manage multiple world currencies in one clean, fast app. Whether you're traveling abroad, managing international finances, or just curious about exchange rates, Paisa Convert gives you live rates and a smooth experience right in your pocket.\n\nBuilt with Material Design 3, Paisa Convert is fast, intuitive, and easy on the eyes - whether you prefer light or dark mode. No ads. No accounts. No unnecessary permissions.",
-        icon: "/products/paisa-convert/icon.png",
-        features: [
-            "Real-time exchange rates (updated every 10 mins)",
-            "Multi-currency tracking for 50+ options",
-            "Built-in calculator with arithmetic expressions",
-            "6 primary color themes & deep customization",
-            "Offline-friendly with local rate caching",
-            "No ads. No accounts. No tracking.",
-        ],
-        platforms: ["android", "ios"],
-        downloads: [
-            {
-                platform: "ios",
-                url: "#",
-                label: "App Store",
-                external: true,
-                comingSoon: true,
-            },
-            {
-                platform: "android",
-                url: "#",
-                label: "Play Store",
-                external: true,
-            },
-        ],
-        developer: "Sabiq Sabry - novusian",
-        privacyPolicy: `## Privacy Policy for Paisa Convert
-Effective Date: February 26, 2026
-Last Updated: February 26, 2026
-
-### 1. Introduction
-Paisa Convert ("the App") is a currency converter application developed for personal and informational use. This Privacy Policy explains how the App handles your information. We are committed to transparency and to protecting your privacy.
-
-### 2. Information We Do Not Collect
-Paisa Convert does not collect, store, transmit, or share any personally identifiable information. This includes:
-* No name, email address, or account information
-* No location data
-* No device identifiers
-* No usage analytics or crash reporting sent to us
-* No advertising tracking
-
-### 3. Data Stored Locally on Your Device
-The App stores the following data locally on your device only, using Android's SharedPreferences storage. This data never leaves your device and is never transmitted to us:
-* Your selected currencies and preferred base currency
-* The last amount you entered
-* Cached exchange rates (to support offline use)
-* Your in-app settings and preferences (theme, font size, display options, etc.)
-
-This data is stored solely to improve your experience across sessions and can be cleared at any time by uninstalling the App or clearing the App's data via your device settings.
-
-### 4. Third-Party Services
-The App uses the ExchangeRate-API (https://www.exchangerate-api.com) to fetch live exchange rate data. When the App requests exchange rates, a standard HTTP request is made to this service. This request does not include any personal information about you.
-
-Please refer to ExchangeRate-API's own privacy policy for information on how they handle requests made to their service.
-
-### 5. Internet Permission
-The App requests internet access solely to retrieve live exchange rates from ExchangeRate-API. No other network communication takes place.
-
-### 6. Children's Privacy
-Paisa Convert does not target or knowingly collect information from children under the age of 13. The App does not collect any personal information from any user, regardless of age.
-
-### 7. Changes to This Privacy Policy
-We may update this Privacy Policy from time to time. Any changes will be reflected by updating the "Last Updated" date at the top of this page. Continued use of the App after any changes constitutes your acceptance of the updated policy.
-
-### 8. Contact
-If you have any questions or concerns about this Privacy Policy, please reach out via the contact information listed on the developer's portfolio.`,
-    },
-    {
-        id: "sky-said-so",
-        name: "Sky Said So",
-        tagline: "Just weather. The way it should be.",
-        description:
-            "Sky Said So is a clean, minimal weather app that tells you exactly what the sky has planned - no clutter, no noise, no unnecessary distractions.\n\nBold, typography-driven design and a clean layout make it easy to read. Get accurate, up-to-date weather based on your location including current temperature, feels-like, humidity, wind speed, and detailed forecasts.",
-        icon: "/products/sky-said-so/icon.png",
-        features: [
-            "Bold, typography-driven design",
-            "Minimal and easy to read",
-            "Slightly witty forecast summaries",
-            "Smooth, modern interface",
-            "Real-time weather based on location",
-            "No ads. No tracking. No nonsense.",
-        ],
-        platforms: ["ios", "android"],
-        downloads: [
-            {
-                platform: "ios",
-                url: "#",
-                label: "App Store",
-                external: true,
-                comingSoon: true,
-            },
-            {
-                platform: "android",
-                url: "#",
-                label: "Play Store",
-                external: true,
-            },
-        ],
-        developer: "Sabiq Sabry - novusian",
-        privacyPolicy: `## Privacy Policy for Sky Said So
-
-Effective Date: February 20, 2026
-
-Sky Said So (“we”, “our”, or “the app”) respects your privacy.
-
-### Information We Collect
-
-Sky Said So requests access to your device’s location in order to provide accurate weather forecasts.
-
-Users may choose to grant:
-* Approximate location, or
-* Precise location
-
-Location data is used only at the time of the request to retrieve weather information.
-
-We do not:
-* Store your location
-* Track your movements
-* Retain location history
-* Share your personal data with third parties for marketing purposes
-
-### Data Usage
-
-Location information is transmitted securely to a third-party weather API solely to retrieve forecast data.
-
-Sky Said So does not maintain its own servers that store personal user data.
-
-### Advertising
-
-Sky Said So does not display advertisements.
-
-### Analytics
-
-Sky Said So does not use analytics tools to track user behavior.
-
-### Children’s Privacy
-
-Sky Said So does not knowingly collect personal information from children.
-
-### Changes to This Policy
-
-We may update this Privacy Policy in the future. Any changes will be reflected on this page.
-
-### Contact
-
-If you have questions about this Privacy Policy, please contact:
-
-Sabiq Sabry - novusian
-${CONTACT.email} / ${CONTACT.emailSecondary}
-${CONTACT.phone}`,
     },
 ];

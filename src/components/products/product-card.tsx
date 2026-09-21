@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Download, ExternalLink, Check, Monitor, ShieldCheck, Smartphone } from "lucide-react"
+import { Download, ExternalLink, Check, Link2, Monitor, ShieldCheck, Smartphone } from "lucide-react"
 import { Product, Platform } from "./products-data"
 
 const platformConfig: Record<Platform, { label: string; color: string }> = {
@@ -43,6 +43,13 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
     return (
+        // The anchor sits on a plain wrapper, not on the animated element: a
+        // browser scrolling to #id measures the rendered box, so the fade-in's
+        // 24px rise would land every deep link 24px high, under the header.
+        <div
+            id={product.id}
+            className="scroll-mt-28 rounded-2xl target:ring-2 target:ring-neutral-400/60"
+        >
         <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -54,7 +61,7 @@ export function ProductCard({ product }: ProductCardProps) {
             <div className="p-8 md:p-10 flex flex-col md:flex-row gap-8">
                 {/* Icon */}
                 <div className="flex-shrink-0">
-                    <div className="w-24 h-24 md:w-28 md:h-28 rounded-[28px] overflow-hidden shadow-sm">
+                    <div className="w-24 h-24 md:w-28 md:h-28 rounded-[28px] overflow-hidden shadow-sm border border-neutral-200 dark:border-neutral-800">
                         <Image
                             src={product.icon}
                             alt={`${product.name} icon`}
@@ -70,9 +77,19 @@ export function ProductCard({ product }: ProductCardProps) {
                     {/* Name + platforms */}
                     <div className="flex flex-col gap-1">
                         <div className="flex flex-wrap items-center gap-[15px]">
-                            <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-neutral-50 leading-tight">
-                                {product.name}
-                            </h2>
+                            <div className="group/anchor flex items-center gap-2">
+                                <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-neutral-50 leading-tight">
+                                    {product.name}
+                                </h2>
+                                <a
+                                    href={`#${product.id}`}
+                                    aria-label={`Link to ${product.name}`}
+                                    title={`Link to ${product.name}`}
+                                    className="text-neutral-300 dark:text-neutral-600 hover:text-neutral-900 dark:hover:text-neutral-50 opacity-100 md:opacity-0 md:group-hover/anchor:opacity-100 focus-visible:opacity-100 transition-all"
+                                >
+                                    <Link2 className="h-4 w-4" />
+                                </a>
+                            </div>
                             <div className="flex flex-wrap gap-2">
                                 {product.platforms.map((p) => {
                                     const cfg = platformConfig[p]
@@ -85,6 +102,11 @@ export function ProductCard({ product }: ProductCardProps) {
                                         </span>
                                     )
                                 })}
+                                {product.badge && (
+                                    <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium border border-neutral-300 dark:border-neutral-700 text-neutral-500 dark:text-neutral-400">
+                                        {product.badge}
+                                    </span>
+                                )}
                             </div>
                         </div>
                         <p className="text-neutral-500 dark:text-neutral-400 text-base">
@@ -197,5 +219,6 @@ export function ProductCard({ product }: ProductCardProps) {
                 </ul>
             </div>
         </motion.div>
+        </div>
     )
 }
