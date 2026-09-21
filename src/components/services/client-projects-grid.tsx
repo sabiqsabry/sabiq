@@ -7,8 +7,17 @@ import { useState, useEffect } from "react";
 import { LighthouseCard } from "@/components/services/lighthouse-card";
 import { ClinicalFlowCard } from "@/components/services/clinical-flow-card";
 import { LamissisBoothCard } from "@/components/services/lamissis-booth-card";
+import { CrysbroCard } from "@/components/services/crysbro-card";
 
 const projects = [
+    {
+        id: "crysbro",
+        title: "Crysbro",
+        category: "Corporate Website",
+        description: "A 93-route corporate site for Sri Lanka's leading chicken producer - full product catalogue, recipes, news and careers, built from Figma to static export.",
+        logo: "/projects/crysbro/logo.png",
+        image: "/projects/crysbro/logo.png",
+    },
     {
         id: "lighthouse",
         title: "The Lighthouse",
@@ -137,6 +146,7 @@ export function ClientProjectsGrid({ showHeader = true }: ClientProjectsGridProp
                             {selectedProject === "lighthouse" && <LighthouseCard />}
                             {selectedProject === "clinical-flow" && <ClinicalFlowCard />}
                             {selectedProject === "lamissis-booth" && <LamissisBoothCard />}
+                            {selectedProject === "crysbro" && <CrysbroCard />}
                         </motion.div>
                     </div>
                 )}

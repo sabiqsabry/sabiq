@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { NovusianBrand } from "@/components/services/novusian-brand";
 import { ClientProjectsGrid } from "@/components/services/client-projects-grid";
 
-const CLIENT_CASE_STUDY_COUNT = 3;
+const CLIENT_CASE_STUDY_COUNT = 4;
 
 const projects = [
     {

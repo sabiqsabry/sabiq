@@ -12,7 +12,7 @@ export function ClientWorkTeaser() {
                     </span>
                     <h2 className="text-2xl md:text-3xl font-bold">See client work on Work</h2>
                     <p className="text-neutral-400 leading-relaxed">
-                        Lighthouse, Clinical Flow, Lamissi&apos;s Booth, and more - case studies now live on the Work page, separate from personal projects.
+                        Crysbro, Lighthouse, Clinical Flow, Lamissi&apos;s Booth, and more - case studies now live on the Work page, separate from personal projects.
                     </p>
                 </div>
                 <Link
