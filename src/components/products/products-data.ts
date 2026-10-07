@@ -29,29 +29,6 @@ export interface Product {
 
 export const products: Product[] = [
     {
-        id: "everything",
-        name: "everything",
-        tagline: "Paste a link. Get the file.",
-        description:
-            "everything is a single-window download hub for macOS. Paste a link - a video URL, a magnet link, a .torrent file, or a plain HTTP/FTP address - and it works out what it is and fetches it. No browser extensions, no ad-riddled download sites, no separate app for every kind of file.\n\nTwo engines sit behind the one link field: a self-built fork of yt-dlp handles the ~1,800 sites it can extract from, and aria2 handles torrents, magnets, and direct transfers. Auto-detection picks the right one and tells you what it decided before anything starts downloading, with a Type dropdown to overrule it. Quality and format controls appear only when the link actually resolves to a video, because a control that quietly does nothing is worse than no control.\n\nEvery engine ships inside the app. yt-dlp, FFmpeg, QuickJS, and aria2 are all bundled, so it runs on a fresh Mac with nothing installed and nothing configured. aria2 is started as a private RPC server on a random loopback port with a random secret and dies with the app, so no daemon outlives it.\n\nBuilt with Flutter for Apple Silicon, macOS 12 and later. A Windows target is scaffolded and coming.",
-        icon: "/products/everything/icon.png",
-        features: [
-            "One link field for videos, torrents, magnets, and direct HTTP/FTP",
-            "Auto-detects the link type and shows its guess before downloading",
-            "Type dropdown to overrule the guess when it gets it wrong",
-            "Self-built yt-dlp fork covering the ~1,800 sites it can extract from",
-            "aria2 for torrents and magnets, with live seeder and peer counts",
-            "Every engine bundled - nothing to install, nothing to configure",
-            "Live log pane with per-download progress, speed, and ETA",
-            "Quality and format controls that appear only for video links",
-        ],
-        platforms: ["mac"],
-        downloads: [],
-        developer: "Sabiq Sabry - novusian",
-        badge: "In Development",
-        comingSoon: "macOS build coming soon - Windows to follow",
-    },
-    {
         id: "blankr",
         name: "Blankr.",
         tagline: "Write. Close. Done.",
