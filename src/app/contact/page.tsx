@@ -26,7 +26,7 @@ export default function ContactPage() {
         setSubmitStatus("idle")
 
         try {
-            const res = await fetch("https://formsubmit.co/ajax/sabiqsabry48@gmail.com", {
+            const res = await fetch("https://formsubmit.co/ajax/5ef4f6a42ae3ac54246a2321be3aaffd", {
                 method: "POST",
                 headers: { "Content-Type": "application/json", Accept: "application/json" },
                 body: JSON.stringify({
