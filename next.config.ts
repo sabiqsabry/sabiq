@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
         source: "/tools/mermaid-on-steroids",
         destination: "/tools/mermaid-on-steroids/index.html",
       },
+      {
+        source: "/tools/drive-or-ride",
+        destination: "/tools/drive-or-ride/index.html",
+      },
     ];
   },
 };

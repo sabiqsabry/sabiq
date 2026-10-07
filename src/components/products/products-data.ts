@@ -79,6 +79,40 @@ export const products: Product[] = [
         comingSoon: "Windows version coming soon.",
     },
     {
+        id: "drive-or-ride",
+        name: "Drive or Ride?",
+        tagline: "Is it cheaper to drive there yourself, or take PickMe / Uber?",
+        description:
+            "Drive or Ride? answers one everyday question: for this trip, right now, is it cheaper to take your own vehicle or book a ride? Enter a start, a destination, and what you drive, and it compares your fuel cost against estimated PickMe and Uber fares for tuks, bikes, and cars.\n\nEstimates are adjusted for live traffic, time of day, and weather, using traffic-aware routing from Google Maps Platform. Sri Lanka is the main market; a few other countries work with fares you enter yourself.\n\nThe fare model is calibrated from real trips and keeps improving through anonymous quotes: enter the real fare you were offered and, if you choose to share it, a rounded, anonymous record helps tune future estimates. No names, place names, or device ids are ever stored.\n\nThe interface is a Liquid Glass UI rendered in a custom WebGL shader, built with React, TypeScript, and Vite. Fares are modelled and clearly labelled as estimates.",
+        icon: "/products/drive-or-ride/icon.png",
+        features: [
+            "Fuel cost vs. PickMe / Uber fares for tuks, bikes, and cars",
+            "Traffic-aware routing with live traffic, time of day, and weather",
+            "Google Places search with a live route map",
+            "Fare model calibrated from real trips",
+            "Anonymous, opt-in fare quotes that improve future estimates",
+            "Liquid Glass UI rendered in a custom WebGL shader",
+            "Light and dark themes",
+        ],
+        platforms: ["web"],
+        downloads: [
+            {
+                platform: "web",
+                url: "/tools/drive-or-ride",
+                label: "Open Project",
+                external: true,
+            },
+            {
+                platform: "web",
+                url: "https://github.com/sabiqsabry/drive-or-ride",
+                label: "View Source",
+                external: true,
+            },
+        ],
+        developer: "Sabiq Sabry - novusian",
+        badge: "New",
+    },
+    {
         id: "mermaid-on-steroids",
         name: "Mermaid on Steroids",
         tagline: "ELK-powered Mermaid diagram editor and export tool",

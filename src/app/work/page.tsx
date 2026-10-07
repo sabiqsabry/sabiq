@@ -12,6 +12,14 @@ const CLIENT_CASE_STUDY_COUNT = 4;
 
 const projects = [
     {
+        title: "Drive or Ride?",
+        category: "Web App",
+        description: "Is it cheaper to drive or take PickMe / Uber? Fuel, live traffic and ride fares compared for Sri Lanka. React, TypeScript, WebGL, Google Maps.",
+        color: "bg-slate-950",
+        image: "/assets/drive-or-ride.png",
+        href: "/tools/drive-or-ride",
+    },
+    {
         title: "Carbon Compass",
         category: "AI & ML",
         description: "AI-powered sustainability report analyser and emissions calculator. Fact-checks corporate climate claims using NLP. Python, React, FastAPI.",
