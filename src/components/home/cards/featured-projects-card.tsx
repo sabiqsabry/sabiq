@@ -44,7 +44,7 @@ export function FeaturedProjectsCard() {
                                 key={`${project.title}-${idx}`}
                                 className="w-72 h-48 md:w-80 md:h-52 lg:w-96 lg:h-56 rounded-xl overflow-hidden shadow-md border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-800 flex-shrink-0 flex flex-col group/item hover:scale-[1.02] transition-transform"
                             >
-                                <ProjectThumbnail category={project.category} icon={project.icon} className="h-3/4 w-full" />
+                                <ProjectThumbnail category={project.category} icon={project.icon} index={allProjects.indexOf(project)} className="h-3/4 w-full" />
                                 <div className="p-3 flex-1 flex flex-col justify-center bg-white dark:bg-neutral-800">
                                     <p className="font-semibold text-sm truncate">{project.title}</p>
                                     <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">{project.category}</p>

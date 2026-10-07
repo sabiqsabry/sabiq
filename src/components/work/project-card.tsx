@@ -12,11 +12,12 @@ interface ProjectCardProps {
     category: string
     description: string
     icon?: LucideIcon
+    index?: number
     href?: string
     priority?: boolean
 }
 
-export const ProjectCard = memo(function ProjectCard({ title, category, description, icon, href, priority = false }: ProjectCardProps) {
+export const ProjectCard = memo(function ProjectCard({ title, category, description, icon, index, href, priority = false }: ProjectCardProps) {
     const [isVisible, setIsVisible] = useState(priority)
     const cardRef = useRef<HTMLDivElement>(null)
 
@@ -43,7 +44,7 @@ export const ProjectCard = memo(function ProjectCard({ title, category, descript
             className={`transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         >
             <Card className="overflow-hidden group hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors h-full flex flex-col">
-                <ProjectThumbnail category={category} icon={icon} className="h-48 w-full flex-shrink-0" />
+                <ProjectThumbnail category={category} icon={icon} index={index} className="h-48 w-full flex-shrink-0" />
 
                 <div className="p-6 flex flex-col flex-grow">
                     <div className="flex justify-between items-start mb-4">

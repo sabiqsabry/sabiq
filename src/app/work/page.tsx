@@ -83,6 +83,7 @@ export default function WorkPage() {
                     <ProjectCard 
                         key={project.href || project.title} 
                         {...project} 
+                        index={projects.indexOf(project)}
                         priority={idx < 6}
                     />
                 ))}
