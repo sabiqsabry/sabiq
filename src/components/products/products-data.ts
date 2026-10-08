@@ -49,7 +49,7 @@ export const products: Product[] = [
         downloads: [
             {
                 platform: "mac",
-                url: "/products/blankr/Blankr-1.4.0-macOS.dmg",
+                url: "/products/blankr/Blankr-1.4.1-macOS.dmg",
                 label: "Download for Mac",
             },
             {
@@ -60,7 +60,6 @@ export const products: Product[] = [
             },
         ],
         developer: "Sabiq Sabry - novusian",
-        badge: "v1.4",
         comingSoon: "Windows version coming soon.",
     },
     {
