@@ -94,7 +94,6 @@ export const products: Product[] = [
             },
         ],
         developer: "Sabiq Sabry - novusian",
-        badge: "New",
     },
     {
         id: "mermaid-on-steroids",
