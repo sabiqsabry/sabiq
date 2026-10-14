@@ -33,7 +33,7 @@ export const products: Product[] = [
         name: "Blankr.",
         tagline: "Write. Close. Done.",
         description:
-            "Blankr. is a minimal, zero-distraction notes app for macOS built around a single idea - open it and start writing immediately.\n\nNo dashboards. No accounts. No sync. No save button. No onboarding. No noise. Just a blank page and your words.\n\nWork in browser-style tabs, each with its own text and formatting. When you close a tab, quit, or shut down, every tab is saved for you - back to the file it came from, or to your Desktop as a plain .txt named after the tab (.rtf when it has formatting). Existing files are never overwritten, and your open tabs are back exactly where you left them on the next launch. No hidden folders. No proprietary formats. No lock-in.\n\nVersion 1.4 also makes Blankr. a quiet viewer: Markdown files open fully rendered - tables, task lists, highlighted code blocks, images - and code in 80+ languages opens with syntax highlighting and line numbers, read-only until you choose to edit.\n\nA slim side panel holds only the essentials - bold, italic, underline, size, alignment, checklists and numbered lists. Zoom adapts to each display, and everything stays fully offline.\n\nBlankr. does not try to organize your life. It does not try to be smart. It just gets out of your way completely.",
+            "Blankr. is a minimal, zero-distraction notes app for macOS built around a single idea - open it and start writing immediately.\n\nNo dashboards. No accounts. No sync. No save button. No onboarding. No noise. Just a blank page and your words.\n\nWork in browser-style tabs, each with its own text and formatting. When you close a tab, quit, or shut down, every tab is saved for you - back to the file it came from, or to your Desktop as a plain .txt named after the tab (.rtf when it has formatting). Existing files are never overwritten, and your open tabs are back exactly where you left them on the next launch. No hidden folders. No proprietary formats. No lock-in.\n\nVersion 1.4 also makes Blankr. a quiet viewer: Markdown files open fully rendered - tables, task lists, highlighted code blocks, images - and code in 80+ languages opens with syntax highlighting and line numbers, read-only until you choose to edit. Pinch or ⌘+/⌘- to zoom the reading size on its own, without resizing the rest of the app.\n\nA slim side panel holds only the essentials - bold, italic, underline, size, alignment, checklists and numbered lists. Zoom adapts to each display, and everything stays fully offline.\n\nBlankr. does not try to organize your life. It does not try to be smart. It just gets out of your way completely.",
         icon: "/products/blankr/icon.png",
         features: [
             "Browser-style tabs, restored exactly as you left them on next launch",
@@ -42,14 +42,14 @@ export const products: Product[] = [
             "Rendered Markdown viewer with tables, task lists, and highlighted code blocks",
             "Code viewer for 80+ languages with syntax highlighting, line numbers, and find",
             "Minimal formatting panel with checklists and numbered lists",
-            "Display-aware zoom that stays sharp on every monitor",
+            "Display-aware zoom, plus a separate reading zoom for Markdown and code",
             "Fully offline, fully private, zero telemetry - native Swift and SwiftUI, macOS 13+",
         ],
         platforms: ["mac"],
         downloads: [
             {
                 platform: "mac",
-                url: "/products/blankr/Blankr-1.4.1-macOS.dmg",
+                url: "https://github.com/sabiqsabry/blankr/releases/latest/download/Blankr-macOS.dmg",
                 label: "Download for Mac",
             },
             {
