@@ -9,7 +9,7 @@ const skills = {
 };
 
 const experience: { role: string; company: string; period: string; location: string }[] = [
-    { role: "Machine Learning Engineer", company: "CDAZZDEV", period: "Apr 2026 – Present", location: "Seattle, Washington, United States · Remote" },
+    { role: "Machine Learning Engineer", company: "CDAZZDEV", period: "Apr 2026 – Oct 2026", location: "Seattle, Washington, United States · Remote" },
     { role: "Senior Web Developer", company: "Tactik AU", period: "May 2021 – Dec 2022", location: "Melbourne, Victoria · Remote" },
     { role: "Web Developer", company: "Cursor", period: "Nov 2021 – Jan 2022", location: "Colombo, Western Province, Sri Lanka" },
     { role: "Web Developer", company: "Nonversal", period: "Sep 2020 – Jan 2022", location: "Colombo, Western Province, Sri Lanka" },
