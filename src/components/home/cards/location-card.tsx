@@ -72,7 +72,7 @@ export function LocationCard() {
                 </div>
                 <div className="bg-white/80 dark:bg-neutral-900/80 p-4 rounded-2xl backdrop-blur-md">
                     <CardTitle className="mb-1">Location</CardTitle>
-                    <p className="font-medium">Malaysia & Sri Lanka</p>
+                    <p className="font-medium">Sri Lanka</p>
                     <p className="text-sm text-neutral-500 dark:text-neutral-400">Open to remote opportunities</p>
                     <div className="mt-3 flex items-center gap-4 text-xs flex-wrap">
                         <div className="flex items-center gap-1.5">
